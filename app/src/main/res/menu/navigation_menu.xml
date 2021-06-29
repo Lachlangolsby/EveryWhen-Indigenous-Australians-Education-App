@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item android:title="User Details">
+            <menu>
+                <item android:id="@+id/mProfile"
+                    android:title="Profile"
+                    android:icon="@drawable/baseline_account_circle_black_18dp"/>
+
+            </menu>
+        </item>
+    </group>
+
+    <group android:id="@+id/group2"
+        android:checkableBehavior="single">
+        <item android:title="Navigation">
+            <menu tools:ignore="ExtraText">
+                <item android:id="@+id/mHome"
+                    android:title="Home"
+                    android:icon="@drawable/baseline_account_circle_black_18dp"/>
+                <item android:id="@+id/mModule1"
+                    android:title="Financial Calculators"
+                    android:icon="@drawable/baseline_account_circle_black_18dp"/>
+                <item android:id="@+id/mModule2"
+                    android:title="Smart Investing"
+                    android:icon="@drawable/baseline_account_circle_black_18dp"/>
+                <item android:id="@+id/mModule6"
+                    android:title="Notes"
+                    android:icon="@drawable/baseline_account_circle_black_18dp"/>
+                <item android:id="@+id/mModule4"
+                    android:title="Quizes"
+                    android:icon="@drawable/baseline_account_circle_black_18dp"/>
+                <item android:id="@+id/mModule5"
+                    android:title="Badges"
+                    android:icon="@drawable/baseline_account_circle_black_18dp"/>
+
+            </menu>
+        </item>
+    </group>
+
+    <group android:id="@+id/group3"
+        android:checkableBehavior="single">
+        <item android:title="Share">
+            <menu>
+                <item android:id="@+id/mShare"
+                    android:title="Share"
+                    android:icon="@drawable/baseline_account_circle_black_18dp"/>
+            </menu>
+        </item>
+    </group>
+
+    <item android:id="@+id/mLogout"
+        android:title="Log Out"
+        android:icon="@drawable/baseline_account_circle_black_18dp"/>
+
+
+
+
+
+</menu>
