@@ -24,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-    // assigning nav menu variables to xml of this page
+    // imports nav view id written at bottom of pages XML file
     navigationView = findViewById(R.id.nav_View);
+    // Identifying the Page ID set in the xml (first few lines)
     drawerLayout = findViewById(R.id.MainLayout);
 
     //action when navigation menu open and close
