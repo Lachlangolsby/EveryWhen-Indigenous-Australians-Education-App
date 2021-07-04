@@ -1,33 +1,30 @@
 package com.example.infs3605;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import com.google.android.material.navigation.NavigationView;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class ArtGallery extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_art_gallery);
 
     // imports nav view id written at bottom of pages XML file
     navigationView = findViewById(R.id.nav_View);
     // Identifying the Page ID set in the xml (first few lines)
-    drawerLayout = findViewById(R.id.MainLayout);
+    drawerLayout = findViewById(R.id.ArtGallery);
 
     //action when navigation menu open and close
     toggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open,R.string.close);
@@ -41,28 +38,28 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()){
                 case R.id.mHome:
-                    Toast.makeText(MainActivity.this, "Profile page", Toast.LENGTH_SHORT);
-                    Intent activityChangeIntent = new Intent(MainActivity.this, MainActivity.class);
-                    MainActivity.this.startActivity(activityChangeIntent);
+                    Toast.makeText(ArtGallery.this, "Profile page", Toast.LENGTH_SHORT);
+                    Intent activityChangeIntent = new Intent(ArtGallery.this, MainActivity.class);
+                    ArtGallery.this.startActivity(activityChangeIntent);
                     drawerLayout.closeDrawers();
                     break;
                 case R.id.mModule1:
-                    Toast.makeText(MainActivity.this, "ArtGallery", Toast.LENGTH_SHORT);
-                    Intent activityChangeIntentCalculator = new Intent(MainActivity.this, ArtGallery.class);
-                    MainActivity.this.startActivity(activityChangeIntentCalculator);
+                    Toast.makeText(ArtGallery.this, "ArtGallery", Toast.LENGTH_SHORT);
+                    Intent activityChangeIntentCalculator = new Intent(ArtGallery.this, ArtGallery.class);
+                    ArtGallery.this.startActivity(activityChangeIntentCalculator);
                     drawerLayout.closeDrawers();
                     break;
                 case R.id.mModule2:
-                    Toast.makeText(MainActivity.this, "Maps", Toast.LENGTH_SHORT);
-                    Intent activityChangeIntentSmartInvesting = new Intent(MainActivity.this, Maps.class);
-                    MainActivity.this.startActivity(activityChangeIntentSmartInvesting);
+                    Toast.makeText(ArtGallery.this, "Maps", Toast.LENGTH_SHORT);
+                    Intent activityChangeIntentSmartInvesting = new Intent(ArtGallery.this, Maps.class);
+                    ArtGallery.this.startActivity(activityChangeIntentSmartInvesting);
                     drawerLayout.closeDrawers();
                     break;
                 case R.id.mModule3:
-                    Toast.makeText(MainActivity.this, "EventsDiscounts", Toast.LENGTH_SHORT);
+                    Toast.makeText(ArtGallery.this, "EventsDiscounts", Toast.LENGTH_SHORT);
                     drawerLayout.closeDrawers();
-                    Intent activityChangeIntentFG = new Intent(MainActivity.this, EventsDiscounts.class);
-                    MainActivity.this.startActivity(activityChangeIntentFG);
+                    Intent activityChangeIntentFG = new Intent(ArtGallery.this, EventsDiscounts.class);
+                    ArtGallery.this.startActivity(activityChangeIntentFG);
                     break;
                 case R.id.mShare:
                     String shareMessage = "Join, it's fun and eductaional.";

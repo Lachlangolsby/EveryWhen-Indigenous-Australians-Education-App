@@ -20,23 +20,17 @@
             <menu tools:ignore="ExtraText">
                 <item android:id="@+id/mHome"
                     android:title="Home"
-                    android:icon="@drawable/baseline_account_circle_black_18dp"/>
+                    android:icon="@drawable/home"/>
                 <item android:id="@+id/mModule1"
-                    android:title="Financial Calculators"
-                    android:icon="@drawable/baseline_account_circle_black_18dp"/>
+                    android:title="ArtGallery"
+                    android:icon="@drawable/picture"/>
                 <item android:id="@+id/mModule2"
-                    android:title="Smart Investing"
-                    android:icon="@drawable/baseline_account_circle_black_18dp"/>
-                <item android:id="@+id/mModule6"
-                    android:title="Notes"
-                    android:icon="@drawable/baseline_account_circle_black_18dp"/>
-                <item android:id="@+id/mModule4"
-                    android:title="Quizes"
-                    android:icon="@drawable/baseline_account_circle_black_18dp"/>
-                <item android:id="@+id/mModule5"
-                    android:title="Badges"
-                    android:icon="@drawable/baseline_account_circle_black_18dp"/>
-
+                    android:title="Maps"
+                    android:icon="@drawable/map"/>
+                <item android:id="@+id/mModule3"
+                    android:title="Events/Promotions"
+                    android:icon="@drawable/calendar"/>
+                \\
             </menu>
         </item>
     </group>
@@ -47,14 +41,14 @@
             <menu>
                 <item android:id="@+id/mShare"
                     android:title="Share"
-                    android:icon="@drawable/baseline_account_circle_black_18dp"/>
+                    android:icon="@drawable/share"/>
             </menu>
         </item>
     </group>
 
     <item android:id="@+id/mLogout"
         android:title="Log Out"
-        android:icon="@drawable/baseline_account_circle_black_18dp"/>
+        android:icon="@drawable/logout"/>
 
 
 
