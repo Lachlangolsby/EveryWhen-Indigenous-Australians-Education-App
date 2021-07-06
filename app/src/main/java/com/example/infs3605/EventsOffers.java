@@ -27,6 +27,8 @@ public class EventsOffers extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_discounts);
+        setTitle("Events & Promotions");
+
         // imports nav view id written at bottom of pages XML file
         navigationView = findViewById(R.id.nav_View);
         // Identifying the Page ID set in the xml (first few lines)
@@ -100,6 +102,12 @@ public class EventsOffers extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         Intent activityChangeIntentFG = new Intent(EventsOffers.this, EventsOffers.class);
                         EventsOffers.this.startActivity(activityChangeIntentFG);
+                        break;
+                    case R.id.mProfile:
+                        Toast.makeText(EventsDiscounts.this, "Profile", Toast.LENGTH_SHORT);
+                        drawerLayout.closeDrawers();
+                        Intent activityChangeIntentP = new Intent(EventsDiscounts.this, Profile.class);
+                        EventsDiscounts.this.startActivity(activityChangeIntentP);
                         break;
                     case R.id.mShare:
                         String shareMessage = "Join, it's fun and eductaional.";

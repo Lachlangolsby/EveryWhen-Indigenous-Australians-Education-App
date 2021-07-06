@@ -178,6 +178,12 @@ public class MainActivity extends AppCompatActivity {
                         Intent activityChangeIntentFG = new Intent(MainActivity.this, EventsOffers.class);
                         MainActivity.this.startActivity(activityChangeIntentFG);
                         break;
+                    case R.id.mProfile:
+                        Toast.makeText(MainActivity.this, "Profile", Toast.LENGTH_SHORT);
+                        drawerLayout.closeDrawers();
+                        Intent activityChangeIntentP = new Intent(MainActivity.this, Profile.class);
+                        MainActivity.this.startActivity(activityChangeIntentP);
+                        break;
                     case R.id.mShare:
                         String shareMessage = "Join, it's fun and eductaional.";
                         Intent mSharingIntent = new Intent(Intent.ACTION_SEND);

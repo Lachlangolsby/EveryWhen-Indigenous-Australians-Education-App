@@ -21,6 +21,8 @@ public class Maps extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        setTitle("Interactive Map");
+
         // imports nav view id written at bottom of pages XML file
         navigationView = findViewById(R.id.nav_View);
         // Identifying the Page ID set in the xml (first few lines)
@@ -60,6 +62,12 @@ public class Maps extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         Intent activityChangeIntentFG = new Intent(Maps.this, EventsOffers.class);
                         Maps.this.startActivity(activityChangeIntentFG);
+                        break;
+                    case R.id.mProfile:
+                        Toast.makeText(Maps.this, "Profile", Toast.LENGTH_SHORT);
+                        drawerLayout.closeDrawers();
+                        Intent activityChangeIntentP = new Intent(Maps.this, Profile.class);
+                        Maps.this.startActivity(activityChangeIntentP);
                         break;
                     case R.id.mShare:
                         String shareMessage = "Join, it's fun and eductaional.";
