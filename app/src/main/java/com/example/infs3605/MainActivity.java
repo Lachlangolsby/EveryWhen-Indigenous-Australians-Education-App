@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.Toast;
 
@@ -16,8 +15,6 @@ import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
@@ -50,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         TopSearchAdapter.RecyclerViewClickListener listener = new TopSearchAdapter.RecyclerViewClickListener() {
             @Override
             public void onClick(View view, String locationName) {
-                launchSubPage("detail");
+                //launchSubPage("detail");
             }
         };
 
@@ -89,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(MainActivity.this, EventsDiscounts.class);
+                Intent intent = new Intent(MainActivity.this, EventsOffers.class);
                 intent.putExtra("info", "This is activity from card item index  ");
                 startActivity(intent);
 
@@ -178,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.mModule3:
                         Toast.makeText(MainActivity.this, "EventsDiscounts", Toast.LENGTH_SHORT);
                         drawerLayout.closeDrawers();
-                        Intent activityChangeIntentFG = new Intent(MainActivity.this, EventsDiscounts.class);
+                        Intent activityChangeIntentFG = new Intent(MainActivity.this, EventsOffers.class);
                         MainActivity.this.startActivity(activityChangeIntentFG);
                         break;
                     case R.id.mShare:
@@ -204,25 +201,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //initiating the button's page
-    private void launchSubPage(String message) {
-
-        if (message.equals("detail")) {
-            Intent intent = new Intent(this, Detail.class);
-            startActivity(intent);
-        } else if (message.equals("profile")) {
-            Intent intent = new Intent(this, Profile.class);
-            startActivity(intent);
-        } else if (message.equals("map")) {
-            Intent intent = new Intent(this, Maps.class);
-            startActivity(intent);
-        } else if (message.equals("events/offers")) {
-            Intent intent = new Intent(this, EventsDiscounts.class);
-            startActivity(intent);
-        } else if (message.equals("help")) {
-            Intent intent = new Intent(this, Help.class);
-            startActivity(intent);
-        }
-    }
+//    private void launchSubPage(String message) {
+//
+//        if (message.equals("detail")) {
+//            Intent intent = new Intent(this, Detail.class);
+//            startActivity(intent);
+//        } else if (message.equals("profile")) {
+//            Intent intent = new Intent(this, Profile.class);
+//            startActivity(intent);
+//        } else if (message.equals("map")) {
+//            Intent intent = new Intent(this, Maps.class);
+//            startActivity(intent);
+//        } else if (message.equals("events/offers")) {
+//            Intent intent = new Intent(this, EventsDiscounts.class);
+//            startActivity(intent);
+//        } else if (message.equals("help")) {
+//            Intent intent = new Intent(this, Help.class);
+//            startActivity(intent);
+//        }
+//    }
 
         // Returning whether menu selected true or false
         @Override

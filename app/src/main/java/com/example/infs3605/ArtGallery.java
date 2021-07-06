@@ -58,7 +58,7 @@ public class ArtGallery extends AppCompatActivity {
                 case R.id.mModule3:
                     Toast.makeText(ArtGallery.this, "EventsDiscounts", Toast.LENGTH_SHORT);
                     drawerLayout.closeDrawers();
-                    Intent activityChangeIntentFG = new Intent(ArtGallery.this, EventsDiscounts.class);
+                    Intent activityChangeIntentFG = new Intent(ArtGallery.this, EventsOffers.class);
                     ArtGallery.this.startActivity(activityChangeIntentFG);
                     break;
                 case R.id.mShare:

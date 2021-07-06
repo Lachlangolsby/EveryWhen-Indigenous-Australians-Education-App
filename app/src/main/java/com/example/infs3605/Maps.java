@@ -58,7 +58,7 @@ public class Maps extends AppCompatActivity {
                     case R.id.mModule3:
                         Toast.makeText(Maps.this, "EventsDiscounts", Toast.LENGTH_SHORT);
                         drawerLayout.closeDrawers();
-                        Intent activityChangeIntentFG = new Intent(Maps.this, EventsDiscounts.class);
+                        Intent activityChangeIntentFG = new Intent(Maps.this, EventsOffers.class);
                         Maps.this.startActivity(activityChangeIntentFG);
                         break;
                     case R.id.mShare:
