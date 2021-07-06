@@ -11,14 +11,77 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/top_search_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="40dp"
+            android:text="Top Searches "
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/top_search_rv"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="@+id/top_search_title"
+            app:layout_constraintTop_toBottomOf="@+id/top_search_title">
 
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+        <Button
+            android:id="@+id/profile_button"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="20dp"
+            android:text="profile"
+            app:layout_constraintBottom_toTopOf="@+id/eo_button"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/map_button"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:text="Interactive Map"
+            app:layout_constraintBottom_toTopOf="@+id/help_button"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/eo_button"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="40dp"
+            android:text="Events / Offers"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/help_button"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="40dp"
+            android:text="Help"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_View"
@@ -28,5 +91,4 @@
         app:menu="@menu/navigation_menu"
         tools:ignore="MissingConstraints" />
 
-</androidx.drawerlayout.widget.DrawerLayout>
-
+    </androidx.drawerlayout.widget.DrawerLayout>
