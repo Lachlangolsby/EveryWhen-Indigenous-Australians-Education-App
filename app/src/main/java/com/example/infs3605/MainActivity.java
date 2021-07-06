@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import com.google.android.material.navigation.NavigationView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle toggle;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
+    GridLayout mainGrid;
+    CardView cv1, cv2, cv3, cv4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,39 +59,87 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new TopSearchAdapter(items, listener);
         mRecyclerView.setAdapter(mAdapter);
 
+        mainGrid = (GridLayout) findViewById(R.id.mainGrid);
+        cv1 = findViewById(R.id.cv1);
+        cv2 = findViewById(R.id.cv2);
+        cv3 = findViewById(R.id.cv3);
+        cv4 = findViewById(R.id.cv4);
 
-        Button profile = findViewById(R.id.profile_button);
-        Button interactiveMap = findViewById(R.id.map_button);
-        Button eventsOffers = findViewById(R.id.eo_button);
-        Button help = findViewById(R.id.help_button);
-
-        profile.setOnClickListener(new View.OnClickListener() {
+        cv1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                launchSubPage("profile");
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, Maps.class);
+                intent.putExtra("info", "This is activity from card item index  ");
+                startActivity(intent);
+
+            }
+        });
+        cv2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, ArtGallery.class);
+                intent.putExtra("info", "This is activity from card item index  ");
+                startActivity(intent);
+
+            }
+        });
+        cv3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, EventsDiscounts.class);
+                intent.putExtra("info", "This is activity from card item index  ");
+                startActivity(intent);
+
+            }
+        });
+        cv4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                intent.putExtra("info", "This is activity from card item index  ");
+                startActivity(intent);
+
             }
         });
 
-        interactiveMap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchSubPage("map");
-            }
-        });
 
-        eventsOffers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchSubPage("events/offers");
-            }
-        });
 
-        help.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchSubPage("help");
-            }
-        });
+                                       //  Button profile = findViewById(R.id.profile_button);
+//        Button interactiveMap = findViewById(R.id.map_button);
+//        Button eventsOffers = findViewById(R.id.eo_button);
+//        Button help = findViewById(R.id.help_button);
+
+        //profile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                launchSubPage("profile");
+//            }
+//        });
+//
+//        interactiveMap.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                launchSubPage("map");
+//            }
+//        });
+//
+//        eventsOffers.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                launchSubPage("events/offers");
+//            }
+//        });
+//
+//        help.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                launchSubPage("help");
+//            }
+//        });
 
         // imports nav view id written at bottom of pages XML file
         navigationView = findViewById(R.id.nav_View);
@@ -180,5 +232,7 @@ public class MainActivity extends AppCompatActivity {
             }
             return super.onOptionsItemSelected(item);
         }
+
+
     }
 
