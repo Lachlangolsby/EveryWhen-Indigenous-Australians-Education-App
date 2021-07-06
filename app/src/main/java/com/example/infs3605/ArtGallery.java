@@ -16,10 +16,12 @@ public class ArtGallery extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_art_gallery);
+        setTitle("Art Gallery");
 
     // imports nav view id written at bottom of pages XML file
     navigationView = findViewById(R.id.nav_View);
@@ -28,8 +30,8 @@ public class ArtGallery extends AppCompatActivity {
 
     //action when navigation menu open and close
     toggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open,R.string.close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
+    drawerLayout.addDrawerListener(toggle);
+    toggle.syncState();
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     //Navigation menu logic
@@ -60,6 +62,12 @@ public class ArtGallery extends AppCompatActivity {
                     drawerLayout.closeDrawers();
                     Intent activityChangeIntentFG = new Intent(ArtGallery.this, EventsDiscounts.class);
                     ArtGallery.this.startActivity(activityChangeIntentFG);
+                    break;
+                case R.id.mProfile:
+                    Toast.makeText(ArtGallery.this, "Profile", Toast.LENGTH_SHORT);
+                    drawerLayout.closeDrawers();
+                    Intent activityChangeIntentP = new Intent(ArtGallery.this, Profile.class);
+                    ArtGallery.this.startActivity(activityChangeIntentP);
                     break;
                 case R.id.mShare:
                     String shareMessage = "Join, it's fun and eductaional.";

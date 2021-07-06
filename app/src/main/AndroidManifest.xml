@@ -15,6 +15,7 @@
         <activity android:name=".EventsDiscounts" />
         <activity android:name=".Maps" />
         <activity android:name=".ArtGallery" />
+        <activity android:name=".Profile" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
