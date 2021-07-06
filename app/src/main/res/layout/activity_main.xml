@@ -198,12 +198,12 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Notes"
+                        android:gravity="center_horizontal"
+                        android:text="Favourites"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="10sp"
-                        android:textStyle="bold"
-                        android:gravity="center_horizontal" />
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
