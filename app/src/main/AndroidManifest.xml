@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".EventsDiscounts"></activity>
+        <activity android:name=".SignUp"></activity>
+        <activity android:name=".ResetPassword" />
+        <activity android:name=".Login" />
+        <activity android:name=".EventsDiscounts" />
         <activity android:name=".Maps" />
         <activity android:name=".ArtGallery" />
         <activity android:name=".MainActivity">
