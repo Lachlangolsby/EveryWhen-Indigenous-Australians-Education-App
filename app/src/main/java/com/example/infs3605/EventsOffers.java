@@ -104,10 +104,10 @@ public class EventsOffers extends AppCompatActivity {
                         EventsOffers.this.startActivity(activityChangeIntentFG);
                         break;
                     case R.id.mProfile:
-                        Toast.makeText(EventsDiscounts.this, "Profile", Toast.LENGTH_SHORT);
+                        Toast.makeText(EventsOffers.this, "Profile", Toast.LENGTH_SHORT);
                         drawerLayout.closeDrawers();
-                        Intent activityChangeIntentP = new Intent(EventsDiscounts.this, Profile.class);
-                        EventsDiscounts.this.startActivity(activityChangeIntentP);
+                        Intent activityChangeIntentP = new Intent(EventsOffers.this, Profile.class);
+                        EventsOffers.this.startActivity(activityChangeIntentP);
                         break;
                     case R.id.mShare:
                         String shareMessage = "Join, it's fun and eductaional.";
