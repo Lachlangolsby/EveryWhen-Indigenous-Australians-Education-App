@@ -66,7 +66,7 @@ public class Profile extends AppCompatActivity {
                     case R.id.mModule3:
                         Toast.makeText(Profile.this, "EventsDiscounts", Toast.LENGTH_SHORT);
                         drawerLayout.closeDrawers();
-                        Intent activityChangeIntentFG = new Intent(Profile.this, EventsDiscounts.class);
+                        Intent activityChangeIntentFG = new Intent(Profile.this, EventsOffers.class);
                         Profile.this.startActivity(activityChangeIntentFG);
                         break;
                     case R.id.mProfile:
