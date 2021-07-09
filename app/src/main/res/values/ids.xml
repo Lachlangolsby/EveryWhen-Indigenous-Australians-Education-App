@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="ivSight" type="id" />
+    <item name="tvPriceGuide" type="id" />
+    <item name="tvLocationTitle" type="id" />
+    <item name="tvRatingTitle" type="id" />
+    <item name="tvTypeTitle" type="id" />
+    <item name="tvLocation" type="id" />
+    <item name="tvType" type="id" />
+</resources>

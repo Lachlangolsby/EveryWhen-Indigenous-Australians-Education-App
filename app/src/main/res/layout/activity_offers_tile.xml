@@ -1,0 +1,118 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8sp"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:id="@+id/ivSight"
+        android:layout_width="142dp"
+        android:layout_height="170dp"
+        android:contentDescription="@string/todo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="236dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+        android:includeFontPadding="true"
+        android:text="@string/test"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ivSight"
+        app:layout_constraintTop_toTopOf="@+id/ivSight" />
+
+    <TextView
+        android:id="@+id/tvPriceGuide"
+        android:layout_width="152dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:text="1000"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/ivSight"
+        app:layout_constraintTop_toTopOf="@+id/tvPriceTitle" />
+
+    <TextView
+        android:id="@+id/tvPriceTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="price_guide"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvLocationTitle" />
+
+    <TextView
+        android:id="@+id/tvRatingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="rating_5"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvPriceTitle" />
+
+    <TextView
+        android:id="@+id/tvRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/textview"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/ivSight"
+        app:layout_constraintTop_toBottomOf="@+id/tvPriceGuide" />
+
+    <TextView
+        android:id="@+id/tvTypeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="type"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <TextView
+        android:id="@+id/tvLocationTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="location"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvTypeTitle" />
+
+    <TextView
+        android:id="@+id/tvLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:text="textview"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/ivSight"
+        app:layout_constraintTop_toTopOf="@+id/tvLocationTitle" />
+
+    <TextView
+        android:id="@+id/tvType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="8dp"
+        android:text="textview"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/ivSight"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,7 +17,7 @@ public class EventsOffersFragmentAdapter extends FragmentStateAdapter {
         switch (position)
         {
             case 1 :
-                return new OffersFragment();
+                return new OffersFrag();
         }
 
         return new EventsFragment();
