@@ -60,14 +60,13 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        /*
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 backToMain();
             }
         });
-         */
 
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,13 +147,11 @@ public class Login extends AppCompatActivity {
         startActivity(forgotPassword);
     }
 
-    /*
     //Direct User Back to Welcome Page
     private void backToMain(){
         Intent toWelcome = new Intent(Login.this, Welcome.class);
         startActivity(toWelcome);
     }
-    */
 
     //Direct User to Sign Up Page
     private void register(){

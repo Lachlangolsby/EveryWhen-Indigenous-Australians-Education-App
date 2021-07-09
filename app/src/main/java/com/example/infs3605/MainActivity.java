@@ -10,6 +10,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -192,13 +194,13 @@ public class MainActivity extends AppCompatActivity {
                         mSharingIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
                         startActivity(Intent.createChooser(mSharingIntent, "Share Score Via"));
                         break;
-//                case R.id.mLogout:
-//                    FirebaseAuth.getInstance().signOut();
-//                    Toast.makeText(BadgesPage.this, "You are Logged Out", Toast.LENGTH_SHORT).show();
-//                    Intent activityChangeIntent2 = new Intent(BadgesPage.this, MainActivity.class);
-//                    BadgesPage.this.startActivity(activityChangeIntent2);
-//                    drawerLayout.closeDrawers();
-//                    break;
+                    case R.id.mLogout:
+                    FirebaseAuth.getInstance().signOut();
+                    Toast.makeText(MainActivity.this, "You are Logged Out", Toast.LENGTH_SHORT).show();
+                    Intent logout = new Intent(MainActivity.this, Welcome.class);
+                    startActivity(logout);
+                    drawerLayout.closeDrawers();
+                        break;
                 }
 
                 return false;
