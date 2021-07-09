@@ -3,6 +3,8 @@ package com.example.infs3605;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,7 +60,19 @@ public class EventsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View rootEventView = inflater.inflate(R.layout.fragment_events, container, false);
+        RecyclerView eventRecyclerView = rootEventView.findViewById(R.id.rvEventsList);
+        eventRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_events, container, false);
+
+        EventsAdapter.Listener listener = new EventsAdapter.Listener() {
+            @Override
+            public void onClick(View view, String eventName) {
+            }
+        };
+
+        EventsAdapter mEventAdapter = new EventsAdapter(Event.getEvents(), listener);
+        eventRecyclerView.setAdapter(mEventAdapter);
+        return rootEventView;
     }
 }
