@@ -19,6 +19,8 @@ public class Welcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+        //Set Title
+        setTitle("");
 
         skipToMain = (Button) findViewById(R.id.skipToMain);
         login = (Button) findViewById(R.id.login);
