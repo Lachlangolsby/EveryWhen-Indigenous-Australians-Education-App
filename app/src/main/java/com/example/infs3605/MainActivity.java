@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Set Title
+        setTitle("Everywhen");
 
         mRecyclerView = findViewById(R.id.top_search_rv);
         mRecyclerView.setHasFixedSize(true);
