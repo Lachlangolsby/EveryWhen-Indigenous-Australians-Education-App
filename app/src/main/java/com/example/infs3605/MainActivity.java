@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     GridLayout mainGrid;
     CardView cv1, cv2, cv3, cv4;
+    FirebaseUser user;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +122,21 @@ public class MainActivity extends AppCompatActivity {
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //THIS IS THE CODE TO DISPLAY THE EMAIL OF THE CURRENT USER IN THE NAV MENU
+        //CURRENTLY THIS CRASHES THE APP IF NO USER LOGGED IN (I.E. SKIP TO MAIN)
+        /*
+        //Get current user
+        fAuth = FirebaseAuth.getInstance();
+        user = fAuth.getCurrentUser();
+
+        //Displays users email in the drawer
+        View headerView = navigationView.getHeaderView(0);
+        TextView userEmail = headerView.findViewById(R.id.email);
+        if (userEmail != null) {
+            userEmail.setText(user.getEmail());;
+        }
+        */
+
         //Navigation menu logic
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -162,11 +181,11 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(Intent.createChooser(mSharingIntent, "Share Score Via"));
                         break;
                     case R.id.mLogout:
-                    FirebaseAuth.getInstance().signOut();
-                    Toast.makeText(MainActivity.this, "You are Logged Out", Toast.LENGTH_SHORT).show();
-                    Intent logout = new Intent(MainActivity.this, Welcome.class);
-                    startActivity(logout);
-                    drawerLayout.closeDrawers();
+                        FirebaseAuth.getInstance().signOut();
+                        Toast.makeText(MainActivity.this, "You are Logged Out", Toast.LENGTH_SHORT).show();
+                        Intent logout = new Intent(MainActivity.this, Welcome.class);
+                        startActivity(logout);
+                        drawerLayout.closeDrawers();
                         break;
                 }
 

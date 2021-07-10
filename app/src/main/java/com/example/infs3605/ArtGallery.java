@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -71,6 +72,21 @@ public class ArtGallery extends AppCompatActivity {
     toggle.syncState();
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+    //THIS IS THE CODE TO DISPLAY THE EMAIL OF THE CURRENT USER IN THE NAV MENU
+    //CURRENTLY THIS CRASHES THE APP IF NO USER LOGGED IN (I.E. SKIP TO MAIN)
+    /*
+    //Get current user
+    fAuth = FirebaseAuth.getInstance();
+    user = fAuth.getCurrentUser();
+
+    //Displays users email in the drawer
+    View headerView = navigationView.getHeaderView(0);
+    TextView userEmail = headerView.findViewById(R.id.email);
+    if (userEmail != null) {
+        userEmail.setText(user.getEmail());;
+    }
+    */
+
     //Navigation menu logic
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
         @Override
@@ -114,13 +130,12 @@ public class ArtGallery extends AppCompatActivity {
                     mSharingIntent.putExtra(Intent.EXTRA_TEXT,shareMessage);
                     startActivity(Intent.createChooser(mSharingIntent,"Share Score Via"));
                     break;
-//                case R.id.mLogout:
-//                    FirebaseAuth.getInstance().signOut();
-//                    Toast.makeText(BadgesPage.this, "You are Logged Out", Toast.LENGTH_SHORT).show();
-//                    Intent activityChangeIntent2 = new Intent(BadgesPage.this, MainActivity.class);
-//                    BadgesPage.this.startActivity(activityChangeIntent2);
-//                    drawerLayout.closeDrawers();
-//                    break;
+                case R.id.mLogout:
+                    FirebaseAuth.getInstance().signOut();
+                    Toast.makeText(ArtGallery.this, "You are Logged Out", Toast.LENGTH_SHORT).show();
+                    Intent logout = new Intent(ArtGallery.this, Welcome.class);
+                    startActivity(logout);
+                    drawerLayout.closeDrawers();
             }
 
             return false;
