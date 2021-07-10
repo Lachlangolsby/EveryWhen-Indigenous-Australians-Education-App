@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/top_search_rv"
+            android:id="@+id/display_rv"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:layout_marginStart="17dp"
@@ -226,4 +226,4 @@
 
     </com.google.android.material.navigation.NavigationView>
 
-    </androidx.drawerlayout.widget.DrawerLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

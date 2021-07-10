@@ -4,15 +4,24 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+
 public class ArtGallery extends AppCompatActivity {
+
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
@@ -22,6 +31,34 @@ public class ArtGallery extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_art_gallery);
         setTitle("Art Gallery");
+
+        mRecyclerView = findViewById(R.id.display_rv);
+
+        ArrayList artItems = new ArrayList<String>();
+        artItems.add("Art 1");
+        artItems.add("Art 2");
+        artItems.add("Art 3");
+        artItems.add("Art 4");
+        artItems.add("Art 5");
+        artItems.add("Art 6");
+        artItems.add("Art 7");
+        artItems.add("Art 8");
+        artItems.add("Art 9");
+        artItems.add("Art 10");
+
+
+        GalleryAdapter.RecyclerViewClickListener galleryListener = new GalleryAdapter.RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, String art) {
+                launchSubPage("detail");
+            }
+        };
+
+        mAdapter = new GalleryAdapter(artItems, galleryListener);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL,false);
+        mRecyclerView.setLayoutManager(gridLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
+
 
     // imports nav view id written at bottom of pages XML file
     navigationView = findViewById(R.id.nav_View);
@@ -98,5 +135,10 @@ public class ArtGallery extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void launchSubPage (String message) {
+        Intent intent = new Intent(this, Detail.class);
+        startActivity(intent);
     }
 }

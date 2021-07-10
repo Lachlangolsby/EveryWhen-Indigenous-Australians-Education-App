@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         //Set Title
         setTitle("Everywhen");
 
-        mRecyclerView = findViewById(R.id.top_search_rv);
+        mRecyclerView = findViewById(R.id.display_rv);
         mRecyclerView.setHasFixedSize(true);
 
         ArrayList items = new ArrayList<String>();
@@ -107,41 +107,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-                                       //  Button profile = findViewById(R.id.profile_button);
-//        Button interactiveMap = findViewById(R.id.map_button);
-//        Button eventsOffers = findViewById(R.id.eo_button);
-//        Button help = findViewById(R.id.help_button);
-
-        //profile.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                launchSubPage("profile");
-//            }
-//        });
-//
-//        interactiveMap.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                launchSubPage("map");
-//            }
-//        });
-//
-//        eventsOffers.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                launchSubPage("events/offers");
-//            }
-//        });
-//
-//        help.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                launchSubPage("help");
-//            }
-//        });
-
         // imports nav view id written at bottom of pages XML file
         navigationView = findViewById(R.id.nav_View);
         // Identifying the Page ID set in the xml (first few lines)
@@ -209,27 +174,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    //initiating the button's page
-//    private void launchSubPage(String message) {
-//
-//        if (message.equals("detail")) {
-//            Intent intent = new Intent(this, Detail.class);
-//            startActivity(intent);
-//        } else if (message.equals("profile")) {
-//            Intent intent = new Intent(this, Profile.class);
-//            startActivity(intent);
-//        } else if (message.equals("map")) {
-//            Intent intent = new Intent(this, Maps.class);
-//            startActivity(intent);
-//        } else if (message.equals("events/offers")) {
-//            Intent intent = new Intent(this, EventsDiscounts.class);
-//            startActivity(intent);
-//        } else if (message.equals("help")) {
-//            Intent intent = new Intent(this, Help.class);
-//            startActivity(intent);
-//        }
-//    }
 
         // Returning whether menu selected true or false
         @Override
