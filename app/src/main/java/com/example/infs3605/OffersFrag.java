@@ -91,37 +91,38 @@ public class OffersFrag extends Fragment {
     }
 
 
-        private void inrecyclerview (View view)
-        {
+    private void inrecyclerview(View view) {
         mRecyclerView = view.findViewById(R.id.Offers_rv);
-            LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setHasFixedSize(true);
-mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setLayoutManager(layoutManager);
+
         //3. calling recycleviewclicklistner method from the Attractions adapter class calling the launch detail activity method to switcch pages.
         OffersAdapter.RecyclerViewClickListener listener = new OffersAdapter.RecyclerViewClickListener() {
             @Override
             public void onClick(View view, String AttractionCode) {
-     //           launchDetailActivity(AttractionCode);
+                launchDetailActivity(AttractionCode);
             }
         };
 
 
         // 4. declaring an adapter type variable which takes in array list from attractions class before assigning it to the recycler view.
-        mAdapter = new OffersAdapter(Offers.getAttractions(), listener);
+        mAdapter = new OffersAdapter(Offers.getOffers(), listener);
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    //5. method used to launch detail activity populated with the correct data.
-  //  private void launchDetailActivity(String message) {
-    //    Intent intent = new Intent(this, OffersDetailActivity.class);
-     //   intent.putExtra(OffersDetailActivity.INTENT_MESSAGE, message);
-      //  startActivity(intent);
+    // 5. method used to launch detail activity populated with the correct data.
+    private void launchDetailActivity(String message) {
+        Intent intent = new Intent(this.getContext(), OffersDetailActivity.class);
+        intent.putExtra(OffersDetailActivity.INTENT_MESSAGE, message);
+        startActivity(intent);
 
 
-    //}
+    }
 }
 
-//    @Override
+
+//   @Override
 //6. altering the menu bar to have a search view option, the method then checks the query against items in the recycler view using the filer method from the adapter class.
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        MenuInflater inflater = getMenuInflater();

@@ -17,24 +17,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 //import com.squareup.picasso.Picasso;
 
+import com.squareup.picasso.Picasso;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OffersViewHolder> implements Filterable {
     // 1. Declaring public variables to be accessed throughout application and private for adapter class
     public static final int SORT_METHOD_RATINGHL = 1;
     public static final int SORT_METHOD_RATINGLH = 2;
-    private ArrayList<Offers> mAttractions;
-    private ArrayList<Offers> mAttractionsFiltered;
+    private ArrayList<Offers> mOffers;
+    private ArrayList<Offers> mOffersFiltered;
     private RecyclerViewClickListener mListener;
 
 
     // 2. Creating constructor for adapter class.
-    public OffersAdapter(ArrayList<Offers> Attractions, RecyclerViewClickListener listener) {
-        mAttractions = Attractions;
-        mAttractionsFiltered = Attractions;
+    public OffersAdapter(ArrayList<Offers> Offers, RecyclerViewClickListener listener) {
+        mOffers = Offers;
+        mOffersFiltered = Offers;
         mListener = listener;
 
 
@@ -50,26 +50,26 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OffersView
                 String charString = charSequence.toString();
                 //5. using if statements to adjust ArrayList before returning filtered results
                 if (charString.isEmpty()) {
-                    mAttractionsFiltered = mAttractions;
+                    mOffersFiltered = mOffers;
                 } else {
                     ArrayList<Offers> filteredList = new ArrayList<>();
-                    for (Offers offers : mAttractions) {
-                        if (offers.getAttraction().toLowerCase().contains(charString.toLowerCase())) {
+                    for (Offers offers : mOffers) {
+                        if (offers.getOffer().toLowerCase().contains(charString.toLowerCase())) {
                             filteredList.add(offers);
                         }
                     }
 
-                    mAttractionsFiltered = filteredList;
+                    mOffersFiltered = filteredList;
                 }
                 FilterResults filterResults = new FilterResults();
-                filterResults.values = mAttractionsFiltered;
+                filterResults.values = mOffersFiltered;
                 return filterResults;
             }
 
             //6. publish results of filter() and changing data set
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                mAttractionsFiltered = (ArrayList<Offers>) filterResults.values;
+                mOffersFiltered = (ArrayList<Offers>) filterResults.values;
                 notifyDataSetChanged();
 
 
@@ -90,41 +90,40 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OffersView
     //8. on bind view holder method retrieves data from attractions class and holds the correct data in each list row using attractions get methods.
     @Override
     public void onBindViewHolder(@NonNull OffersViewHolder holder, int position) {
-        Offers Attractions = mAttractionsFiltered.get(position);
+        Offers offers = mOffersFiltered.get(position);
         DecimalFormat df = new DecimalFormat("#,###,###,###");
-        holder.attraction.setText(Attractions.getAttraction());
-        holder.price.setText(Attractions.getPriceGuide());
-        holder.type.setText(Attractions.getType());
-        holder.suburb.setText(Attractions.getSuburb());
-        //Picasso.with(holder.context).load(Attractions.getImageUrl()).resize(250, 250).into(holder.image); // Using Picasso API to retrieve images from the web.
-        holder.rating.setText(Double.toString(Attractions.getRating()));
-        holder.itemView.setTag(Attractions.getAttractionCode());
+        holder.offer.setText(offers.getOffer());
+        holder.type.setText(offers.getType());
+        holder.location.setText(offers.getLocation());
+        holder.description.setText(offers.getDescription());
+        Picasso.with(holder.context).load(offers.getImageUrl()).resize(122, 195).into(holder.image); // Using Picasso API to retrieve images from the web.
+        holder.itemView.setTag(offers.getAttractionCode());
     }
 
     // 9. setting row count to number of items within the ArrayList
     @Override
     public int getItemCount() {
-        return mAttractionsFiltered.size();
+        return mOffersFiltered.size();
     }
 
     // 10. Filtering method created
-    public void sort(final int sortMethod) {
-        // 11. if a filtering option is selected . size will be > 0 then the comparator and if statements will filter results accordingly. before changing the data set shown on the UI.
-        if (mAttractionsFiltered.size() > 0) {
-            Collections.sort(mAttractionsFiltered, new Comparator<Offers>() {
-                @Override
-                public int compare(Offers t0, Offers t1) {
-                    if (sortMethod == SORT_METHOD_RATINGHL) {
-                        return Double.toString(t1.getRating()).compareTo(Double.toString(t0.getRating()));
-                    } else if (sortMethod == SORT_METHOD_RATINGLH) {
-                        return Double.toString(t0.getRating()).compareTo(Double.toString(t1.getRating()));
-                    }
-                    return Double.toString(t1.getRating()).compareTo(Double.toString(t0.getRating()));
-                }
-            });
-        }
-        notifyDataSetChanged();
-    }
+//    public void sort(final int sortMethod) {
+//        // 11. if a filtering option is selected . size will be > 0 then the comparator and if statements will filter results accordingly. before changing the data set shown on the UI.
+//        if (mOffersFiltered.size() > 0) {
+//            Collections.sort(mOffersFiltered, new Comparator<Offers>() {
+//                @Override
+//                public int compare(Offers t0, Offers t1) {
+//                    if (sortMethod == SORT_METHOD_RATINGHL) {
+//                        return Double.toString(t1.getRating()).compareTo(Double.toString(t0.getRating()));
+//                    } else if (sortMethod == SORT_METHOD_RATINGLH) {
+//                        return Double.toString(t0.getRating()).compareTo(Double.toString(t1.getRating()));
+//                    }
+//                    return Double.toString(t1.getRating()).compareTo(Double.toString(t0.getRating()));
+//                }
+//            });
+//        }
+//        notifyDataSetChanged();
+//    }
 
     // 12. creating interface RecyclerViewOnClickListener, which uses the on click method to take in a view and country code
     public interface RecyclerViewClickListener {
@@ -133,7 +132,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OffersView
 
     //13. assigning variables to UI XML elements used in the onBindViewHolder
     public static class OffersViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView attraction, price, rating, type, suburb;
+        public TextView offer, location, type, description;
         public ImageView image;
         public Context context;
         private OffersAdapter.RecyclerViewClickListener listener;
@@ -143,13 +142,12 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OffersView
             super(itemView);
             this.listener = listener;
             itemView.setOnClickListener(this);
-            attraction = itemView.findViewById(R.id.tvTitle);
-            price = itemView.findViewById(R.id.tvPriceGuide);
-            rating = itemView.findViewById(R.id.tvRating);
+            offer = itemView.findViewById(R.id.tvTitle);
+            description = itemView.findViewById(R.id.tvDescription);
             image = itemView.findViewById(R.id.ivSight);
             context = itemView.getContext();
             type = itemView.findViewById(R.id.tvType);
-            suburb = itemView.findViewById(R.id.tvLocation);
+            location = itemView.findViewById(R.id.tvLocation);
 
         }
 
