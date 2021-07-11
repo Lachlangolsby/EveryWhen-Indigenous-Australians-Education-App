@@ -35,7 +35,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ArtGallery extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
-    private ArtAdapter mAdapter;
+    private GalleryAdapter mAdapter;
     private ArtDatabase mDb;
 
     DrawerLayout drawerLayout;
@@ -50,13 +50,13 @@ public class ArtGallery extends AppCompatActivity {
 
         mRecyclerView = findViewById(R.id.display_rv);
         mRecyclerView.setHasFixedSize(true);
-        ArtAdapter.RecyclerViewClickListener listener = new ArtAdapter.RecyclerViewClickListener() {
+        GalleryAdapter.RecyclerViewClickListener listener = new GalleryAdapter.RecyclerViewClickListener() {
             @Override
             public void onClick(View view, String id) {
                 launchDetailActivity(id);
             }
         };
-        mAdapter = new ArtAdapter(new ArrayList<Art>(), listener);
+        mAdapter = new GalleryAdapter(new ArrayList<Art>(), listener);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
         mDb = Room.databaseBuilder(getApplicationContext(), ArtDatabase.class, "art-database").build();
