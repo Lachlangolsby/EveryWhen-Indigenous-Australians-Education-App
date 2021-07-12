@@ -73,7 +73,7 @@ public class Event {
         events.add(new Event("Aboriginal Cultural Heritage Walk", "Sun, 8:00am - 2:00pm",
                 "North Sydney Council, 200 Miller St", "North Sydney, NSW", "27 JUN",
                 R.drawable.aboriginal_heritage_walk));
-        events.add(new Event("National Indigenous Art Fair", "Sat, 9:00am - 10:00pm",
+        events.add(new Event("National Indigenous ArtDetails Fair", "Sat, 9:00am - 10:00pm",
                 "Sydney Cove Terminal, 130 Argyle St", "The Rocks, NSW", "03 JUL",
                 R.drawable.indigenous_art_fair));
         return events;
