@@ -51,7 +51,7 @@ public class OffersDetailActivity extends AppCompatActivity {
         mEmail = findViewById((R.id.tvEmail));
         mPhone = findViewById((R.id.tvPhone));
         mDescription = findViewById((R.id.tvDescription));
-        mTitle = findViewById((R.id.tvTitle));
+    //    mTitle = findViewById((R.id.tvTitle));
 
 
         // 4. using a getter intent to retrieve the Attractions code
@@ -70,8 +70,8 @@ public class OffersDetailActivity extends AppCompatActivity {
                 mEmail.setText(offers.getEmail());
                 mPhone.setText(offers.getPhoneNumber());
                 mDescription.setText(offers.getDescription());
-                mTitle.setText(offers.getOffer());
-               Picasso.with(context).load(offers.getImageUrl()).resize(125, 145).into(mImage);
+             //   mTitle.setText(offers.getOffer());
+              // Picasso.with(context).load(offers.getImageUrl()).resize(125, 145).into(mImage);
 //                Picasso.with(context).load(Attractions.getImageUrl2()).resize(125, 145).into(mImage2);
 //                Picasso.with(context).load(Attractions.getImageUrl3()).resize(125, 145).into(mImage3);
 
@@ -183,7 +183,7 @@ public class OffersDetailActivity extends AppCompatActivity {
 
     // 8. Methods for the intent to change activity to the relevant weblinks (google and maps).
     private void searchAttraction(String Offer) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?q=" + Offer + " Sydney"));
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?q=" + Offer ));
         startActivity(intent);
     }
 
