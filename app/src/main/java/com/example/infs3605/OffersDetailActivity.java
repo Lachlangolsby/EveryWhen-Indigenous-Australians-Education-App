@@ -129,7 +129,7 @@ public class OffersDetailActivity extends AppCompatActivity {
                         break;
                     case R.id.mModule2:
                         Toast.makeText(OffersDetailActivity.this, "Maps", Toast.LENGTH_SHORT);
-                        Intent activityChangeIntentSmartInvesting = new Intent(OffersDetailActivity.this, Maps.class);
+                        Intent activityChangeIntentSmartInvesting = new Intent(OffersDetailActivity.this, GoogleMaps.class);
                         OffersDetailActivity.this.startActivity(activityChangeIntentSmartInvesting);
                         drawerLayout.closeDrawers();
                         break;

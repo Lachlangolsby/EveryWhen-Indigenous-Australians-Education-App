@@ -75,7 +75,7 @@ public class Profile extends AppCompatActivity {
                         break;
                     case R.id.mModule2:
                         Toast.makeText(Profile.this, "Maps", Toast.LENGTH_SHORT);
-                        Intent activityChangeIntentSmartInvesting = new Intent(Profile.this, Maps.class);
+                        Intent activityChangeIntentSmartInvesting = new Intent(Profile.this, GoogleMaps.class);
                         Profile.this.startActivity(activityChangeIntentSmartInvesting);
                         drawerLayout.closeDrawers();
                         break;

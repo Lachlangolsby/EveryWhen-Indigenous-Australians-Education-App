@@ -106,7 +106,7 @@ public class ArtGallery extends AppCompatActivity {
                     break;
                 case R.id.mModule2:
                     Toast.makeText(ArtGallery.this, "Maps", Toast.LENGTH_SHORT);
-                    Intent activityChangeIntentSmartInvesting = new Intent(ArtGallery.this, Maps.class);
+                    Intent activityChangeIntentSmartInvesting = new Intent(ArtGallery.this, GoogleMaps.class);
                     ArtGallery.this.startActivity(activityChangeIntentSmartInvesting);
                     drawerLayout.closeDrawers();
                     break;
