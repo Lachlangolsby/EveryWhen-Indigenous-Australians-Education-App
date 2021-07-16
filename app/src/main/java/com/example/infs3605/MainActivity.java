@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(MainActivity.this, Maps.class);
+                Intent intent = new Intent(MainActivity.this, GoogleMaps.class);
                 intent.putExtra("info", "This is activity from card item index  ");
                 startActivity(intent);
 
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.mModule2:
                         Toast.makeText(MainActivity.this, "Maps", Toast.LENGTH_SHORT);
-                        Intent activityChangeIntentSmartInvesting = new Intent(MainActivity.this, Maps.class);
+                        Intent activityChangeIntentSmartInvesting = new Intent(MainActivity.this, GoogleMaps.class);
                         MainActivity.this.startActivity(activityChangeIntentSmartInvesting);
                         drawerLayout.closeDrawers();
                         break;
