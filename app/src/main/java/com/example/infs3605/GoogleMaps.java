@@ -18,6 +18,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -70,7 +71,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
             @Override
             public void onLocationChanged(@NonNull Location location) {
                 LatLng currentLatLng = new LatLng(location.getLatitude(), location.getLongitude());
-                mMap.clear();
+                //mMap.clear();
                 mMap.addMarker(new MarkerOptions().position(currentLatLng).title("Current Location"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 10));
             }
@@ -86,9 +87,11 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
             System.out.println("Last Location");
             Location lastLocation = locationManager.getLastKnownLocation(locationManager.GPS_PROVIDER);
             LatLng lastLatLng = new LatLng(lastLocation.getLatitude(), lastLocation.getLongitude());
-            mMap.clear();
+            //mMap.clear();
             mMap.addMarker(new MarkerOptions().position(lastLatLng).title("Current Location"));
+            System.out.println("reset zoom");
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastLatLng, 10));
+            //mMap.setOnCameraMoveListener(new );
         }
 
         //mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
@@ -96,9 +99,11 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
         // Add a marker in Sydney and move the camera
         System.out.println("Sydney Marker");
         LatLng sydney = new LatLng(-34, 151);
+        LatLng sydneyEye = new LatLng(-33.8744433,151.2055889);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-                //.icon(Bitmapdescriptor
+        mMap.addMarker(new MarkerOptions().position(sydneyEye).title("Sydney Eye"));
+        System.out.println("Marker Added");
+        //.icon(Bitmapdescriptor
         //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
-        //
     }
 }
