@@ -21,10 +21,12 @@ import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OffersViewHolder> implements Filterable {
     // 1. Declaring public variables to be accessed throughout application and private for adapter class
-    public static final int SORT_METHOD_RATINGHL = 1;
+    public static final int SORT_METHOD_Donations = 1;
     public static final int SORT_METHOD_RATINGLH = 2;
     private ArrayList<Offers> mOffers;
     private ArrayList<Offers> mOffersFiltered;
@@ -54,7 +56,8 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OffersView
                 } else {
                     ArrayList<Offers> filteredList = new ArrayList<>();
                     for (Offers offers : mOffers) {
-                        if (offers.getOffer().toLowerCase().contains(charString.toLowerCase())) {
+                        if (offers.getOffer().toLowerCase().contains(charString.toLowerCase())
+                        || offers.getType().toLowerCase().contains(charString.toLowerCase())) {
                             filteredList.add(offers);
                         }
                     }
@@ -70,6 +73,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OffersView
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
                 mOffersFiltered = (ArrayList<Offers>) filterResults.values;
+
                 notifyDataSetChanged();
 
 
@@ -106,24 +110,6 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OffersView
         return mOffersFiltered.size();
     }
 
-    // 10. Filtering method created
-//    public void sort(final int sortMethod) {
-//        // 11. if a filtering option is selected . size will be > 0 then the comparator and if statements will filter results accordingly. before changing the data set shown on the UI.
-//        if (mOffersFiltered.size() > 0) {
-//            Collections.sort(mOffersFiltered, new Comparator<Offers>() {
-//                @Override
-//                public int compare(Offers t0, Offers t1) {
-//                    if (sortMethod == SORT_METHOD_RATINGHL) {
-//                        return Double.toString(t1.getRating()).compareTo(Double.toString(t0.getRating()));
-//                    } else if (sortMethod == SORT_METHOD_RATINGLH) {
-//                        return Double.toString(t0.getRating()).compareTo(Double.toString(t1.getRating()));
-//                    }
-//                    return Double.toString(t1.getRating()).compareTo(Double.toString(t0.getRating()));
-//                }
-//            });
-//        }
-//        notifyDataSetChanged();
-//    }
 
     // 12. creating interface RecyclerViewOnClickListener, which uses the on click method to take in a view and country code
     public interface RecyclerViewClickListener {

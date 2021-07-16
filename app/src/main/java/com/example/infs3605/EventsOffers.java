@@ -2,7 +2,10 @@ package com.example.infs3605;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +26,7 @@ public class EventsOffers extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager2 pager2;
     EventsOffersFragmentAdapter adapter;
+    OffersAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

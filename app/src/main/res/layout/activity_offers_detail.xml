@@ -33,9 +33,10 @@
             android:id="@+id/tvSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="12dp"
+            android:background="#FFFFFF"
             android:text="Find out more Information"
             android:textColor="#2196F3"
             app:layout_constraintStart_toEndOf="@+id/search"
@@ -59,11 +60,11 @@
 
         <ImageView
             android:id="@+id/search"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="27dp"
+            android:layout_height="20dp"
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="12dp"
             android:contentDescription="@string/todo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivEmail"
@@ -71,8 +72,8 @@
 
         <ImageView
             android:id="@+id/ivEmail"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="27dp"
+            android:layout_height="20dp"
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
             android:layout_marginTop="12dp"
@@ -83,15 +84,16 @@
 
         <TextView
             android:id="@+id/tvDescription"
-            android:layout_width="359dp"
-            android:layout_height="123dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="357dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="4dp"
             android:background="#FFFFFF"
             android:text="@string/textview"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/descriptionTitle" />
 
@@ -99,9 +101,10 @@
             android:id="@+id/tvPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="22dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="8dp"
+            android:background="#FFFFFF"
             android:text="@string/textview"
             android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/ivPhone"
@@ -109,20 +112,20 @@
 
         <ImageView
             android:id="@+id/ivPhone"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="27dp"
+            android:layout_height="20dp"
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="6dp"
             android:contentDescription="@string/todo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivLocation"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
             app:srcCompat="@drawable/telephone" />
 
         <TextView
             android:id="@+id/tvLocationTitle2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="57dp"
+            android:layout_height="20dp"
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="12dp"
@@ -136,9 +139,10 @@
             android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="12dp"
+            android:background="#FFFFFF"
             android:text="@string/textview"
             android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/ivEmail"
@@ -150,7 +154,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:shadowColor="#070707"
             android:text="Contact Information"
             android:textColor="#121010"
@@ -160,23 +164,25 @@
 
         <ImageView
             android:id="@+id/ivLocation"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="27dp"
+            android:layout_height="20dp"
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="6dp"
             android:contentDescription="@string/todo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDescription"
+            app:layout_constraintTop_toBottomOf="@+id/tvLocationTitle2"
             app:srcCompat="@drawable/dmap" />
 
         <TextView
             android:id="@+id/tvAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="22dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="8dp"
+            android:background="#FFFFFF"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/ivLocation"
             app:layout_constraintTop_toBottomOf="@+id/tvLocationTitle2" />
 
@@ -186,11 +192,12 @@
             android:layout_height="248dp"
             app:layout_constraintBottom_toBottomOf="@+id/ivOffer"
             app:layout_constraintEnd_toEndOf="@+id/ivOffer"
-            app:layout_constraintHorizontal_bias="0.584"
+            app:layout_constraintHorizontal_bias="0.56"
             app:layout_constraintStart_toStartOf="@+id/ivOffer"
             app:layout_constraintTop_toTopOf="@+id/ivOffer"
-            app:layout_constraintVertical_bias="0.471"
+            app:layout_constraintVertical_bias="0.468"
             app:srcCompat="@drawable/qrpic" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
