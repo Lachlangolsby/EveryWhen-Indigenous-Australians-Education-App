@@ -99,5 +99,6 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
                 //.icon(Bitmapdescriptor
         //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
+        //
     }
 }
