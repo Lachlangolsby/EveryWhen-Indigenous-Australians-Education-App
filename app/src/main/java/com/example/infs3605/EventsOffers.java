@@ -2,7 +2,10 @@ package com.example.infs3605;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +26,7 @@ public class EventsOffers extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager2 pager2;
     EventsOffersFragmentAdapter adapter;
+    OffersAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +113,7 @@ public class EventsOffers extends AppCompatActivity {
                         break;
                     case R.id.mModule2:
                         Toast.makeText(EventsOffers.this, "Maps", Toast.LENGTH_SHORT);
-                        Intent activityChangeIntentSmartInvesting = new Intent(EventsOffers.this, Maps.class);
+                        Intent activityChangeIntentSmartInvesting = new Intent(EventsOffers.this, GoogleMaps.class);
                         EventsOffers.this.startActivity(activityChangeIntentSmartInvesting);
                         drawerLayout.closeDrawers();
                         break;

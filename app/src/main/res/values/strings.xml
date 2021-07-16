@@ -7,4 +7,5 @@
     <string name="textview" />
     <string name="todo" />
     <string name="test" />
+    <string name="title_activity_google_maps">Map</string>
 </resources>

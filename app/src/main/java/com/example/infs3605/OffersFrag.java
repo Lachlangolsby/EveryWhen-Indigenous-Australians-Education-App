@@ -8,26 +8,11 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 
-import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.SearchView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
@@ -87,7 +72,9 @@ public class OffersFrag extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_offers, container, false);
         inrecyclerview(view);
+        setHasOptionsMenu(true);
         return view;
+
     }
 
 
@@ -119,32 +106,33 @@ public class OffersFrag extends Fragment {
 
 
     }
-}
 
 
-//   @Override
+
 //6. altering the menu bar to have a search view option, the method then checks the query against items in the recycler view using the filer method from the adapter class.
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.menu_main, menu);
-//        SearchView SearchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-//        SearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//
-//
-//            @Override
-//            public boolean onQueryTextSubmit(String s) {
-//                mAdapter.getFilter().filter(s);
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String s) {
-//                mAdapter.getFilter().filter(s);
-//                return false;
-//            }
-//        });
-//        return true;
-//    }
+
+
+    @Override
+     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_offers_filter, menu);
+        SearchView SearchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        SearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                mAdapter.getFilter().filter(s);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                mAdapter.getFilter().filter(s);
+                return false;
+            }
+        });
+       }
+}
 
 //7. Method uses cases to distinguish between which filter option has been selected and filters results accordingly.
 //    @Override
