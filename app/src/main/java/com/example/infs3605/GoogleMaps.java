@@ -8,6 +8,9 @@ import androidx.fragment.app.FragmentActivity;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -18,6 +21,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -27,6 +32,22 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
     LocationManager locationManager;
     LocationListener locationListener;
+
+    private static final LatLng COOEE1 = new LatLng(-33.890933, 151.270582);
+    private static final LatLng COOEE2 = new LatLng(-33.894292, 151.214739);
+    private static final LatLng WENTWORTH = new LatLng(-33.867540, 151.208320);
+    private static final LatLng ABORIGINALCONTEMPORARY = new LatLng(-33.900678, 151.253835);
+    private static final LatLng SPIRIT = new LatLng(-33.858349, 151.208723);
+    private static final LatLng KARLANGU = new LatLng(-33.866861, 151.205809);
+    private static final LatLng NSW = new LatLng(-33.868403, 151.216749);
+    private static final LatLng MCA = new LatLng(-33.859885, 151.208724);
+    private static final LatLng BURRUNJU = new LatLng(-35.288029, 149.083314);
+    private static final LatLng NGA = new LatLng(-35.300075, 149.136204);
+    private static final LatLng DREAMINGS = new LatLng(-35.191287, 149.084485);
+    private static final LatLng REDSAND = new LatLng(-27.462726, 153.006210);
+    private static final LatLng BIRRUNGA = new LatLng(-27.465441, 153.028917);
+    private static final LatLng BOOMERANG = new LatLng(-26.527945, 153.089503);
+    private static final LatLng WOOLLOONGABBA = new LatLng(-27.485627, 153.029538);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +124,128 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.addMarker(new MarkerOptions().position(sydneyEye).title("Sydney Eye"));
         System.out.println("Marker Added");
+        addMuseumsToMap();
         //.icon(Bitmapdescriptor
         //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
+    }
+
+    private BitmapDescriptor convertDrawableToBitmap(Drawable drawable)
+    {
+        Canvas canvas = new Canvas();
+        Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+        canvas.setBitmap(bitmap);
+        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        drawable.draw(canvas);
+        return BitmapDescriptorFactory.fromBitmap(bitmap);
+    }
+
+    private void addMuseumsToMap()
+    {
+        Drawable drawable=ContextCompat.getDrawable(getApplicationContext(),R.drawable.museum);
+
+        MarkerOptions marker1 = new MarkerOptions();
+        marker1.position(COOEE1)
+                .title("Cooee Art Gallery")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker1);
+
+        MarkerOptions marker2 = new MarkerOptions();
+        marker2.position(COOEE2)
+                .title("Cooee Art Gallery")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker2);
+
+        MarkerOptions marker3 = new MarkerOptions();
+        marker3.position(WENTWORTH)
+                .title("Wentworth Gallery")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker3);
+
+        MarkerOptions marker4 = new MarkerOptions();
+        marker4.position(ABORIGINALCONTEMPORARY)
+                .title("Aboriginal Contemporary")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker4);
+
+        MarkerOptions marker5 = new MarkerOptions();
+        marker5.position(SPIRIT)
+                .title("Spirit Gallery")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker5);
+
+        MarkerOptions marker6 = new MarkerOptions();
+        marker6.position(KARLANGU)
+                .title("Karlangu Aboriginal Art Centre")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker6);
+
+        MarkerOptions marker7 = new MarkerOptions();
+        marker7.position(NSW)
+                .title("Art Gallery of New South Wales")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker7);
+
+        MarkerOptions marker8 = new MarkerOptions();
+        marker8.position(MCA)
+                .title("Museum of Contemporary Art")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker8);
+
+        MarkerOptions marker9 = new MarkerOptions();
+        marker9.position(BURRUNJU)
+                .title("Burrunju Art Gallery")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker9);
+
+        MarkerOptions marker10 = new MarkerOptions();
+        marker10.position(NGA)
+                .title("National Gallery of Australia")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker10);
+
+        MarkerOptions marker11 = new MarkerOptions();
+        marker11.position(DREAMINGS)
+                .title("Aboriginal Dreamings Gallery")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker11);
+
+        MarkerOptions marker12 = new MarkerOptions();
+        marker12.position(BIRRUNGA)
+                .title("Birrunga Gallery & Dining")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker12);
+
+        MarkerOptions marker13 = new MarkerOptions();
+        marker13.position(REDSAND)
+                .title("Red Sand Art Gallery")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker13);
+
+        MarkerOptions marker14 = new MarkerOptions();
+        marker14.position(BOOMERANG)
+                .title("Boomerang Art Aboriginal Art Gallery")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker14);
+
+        MarkerOptions marker15 = new MarkerOptions();
+        marker15.position(WOOLLOONGABBA)
+                .title("Woolloongabba Art Gallery")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker15);
     }
 }
