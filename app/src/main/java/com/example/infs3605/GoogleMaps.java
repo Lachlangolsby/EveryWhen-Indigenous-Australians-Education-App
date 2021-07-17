@@ -49,6 +49,17 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
     private static final LatLng BOOMERANG = new LatLng(-26.527945, 153.089503);
     private static final LatLng WOOLLOONGABBA = new LatLng(-27.485627, 153.029538);
 
+    private static final LatLng GREATNORTH = new LatLng(-33.47172, 151.2881);
+    private static final LatLng FINCHLEY = new LatLng(-32.93853,151.14059);
+    private static final LatLng SYDS = new LatLng(-31.73664,116.07069);
+    private static final LatLng UBIRR = new LatLng(-12.41193,132.95793);
+    private static final LatLng KARIONG = new LatLng(-33.44568,151.28491);
+    private static final LatLng HERITAGE = new LatLng(-33.577967, 151.300208);
+    private static final LatLng MURRAMARANG = new LatLng(-35.53015, 150.39279);
+    private static final LatLng BUNDIAN = new LatLng(-36.980722, 148.860959);
+    private static final LatLng YAPPA = new LatLng(-30.640346, 145.768007);
+    private static final LatLng NOURLANGIE = new LatLng(-12.866921, 132.811765);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,6 +136,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
         mMap.addMarker(new MarkerOptions().position(sydneyEye).title("Sydney Eye"));
         System.out.println("Marker Added");
         addMuseumsToMap();
+        addTrailsToMap();
         //.icon(Bitmapdescriptor
         //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
     }
@@ -247,5 +259,81 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
                 .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker15);
+    }
+
+    private void addTrailsToMap()
+    {
+        Drawable drawable=ContextCompat.getDrawable(getApplicationContext(),R.drawable.trail);
+
+        MarkerOptions marker1 = new MarkerOptions();
+        marker1.position(GREATNORTH)
+                .title("Great North Walk")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker1);
+
+        MarkerOptions marker2 = new MarkerOptions();
+        marker2.position(FINCHLEY)
+                .title("Finchley Track")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker2);
+
+        MarkerOptions marker3 = new MarkerOptions();
+        marker3.position(SYDS)
+                .title("Syd's Rapids & Aboriginal Heritage Trail")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker3);
+
+        MarkerOptions marker4 = new MarkerOptions();
+        marker4.position(UBIRR)
+                .title("Ubirr Aboriginal Art Walk")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker4);
+
+        MarkerOptions marker5 = new MarkerOptions();
+        marker5.position(KARIONG)
+                .title("Kariong to Bulgandry Aboriginal Art Site")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker5);
+
+        MarkerOptions marker6 = new MarkerOptions();
+        marker6.position(HERITAGE)
+                .title("Aboriginal Heritage Walk")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker6);
+
+        MarkerOptions marker7 = new MarkerOptions();
+        marker7.position(MURRAMARANG)
+                .title("Murramarang Aboriginal Area Track")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker7);
+
+        MarkerOptions marker8 = new MarkerOptions();
+        marker8.position(BUNDIAN)
+                .title("Bundian Way")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker8);
+
+        MarkerOptions marker9 = new MarkerOptions();
+        marker9.position(YAPPA)
+                .title("Mulgowan (Yappa) Aboriginal Art Site Walking Track")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker9);
+
+        MarkerOptions marker10 = new MarkerOptions();
+        marker10.position(NOURLANGIE)
+                .title("Nourlangie Trail")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker10);
+
     }
 }
