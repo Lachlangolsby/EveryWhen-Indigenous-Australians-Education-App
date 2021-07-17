@@ -60,6 +60,17 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
     private static final LatLng YAPPA = new LatLng(-30.640346, 145.768007);
     private static final LatLng NOURLANGIE = new LatLng(-12.866921, 132.811765);
 
+    private static final LatLng REDFERN = new LatLng(-33.890774, 151.197723);
+    private static final LatLng JENNYMUNRO = new LatLng(-33.877300, 151.203105);
+    private static final LatLng BANDB = new LatLng(-33.894905, 151.205927);
+    private static final LatLng YININMADYEMI = new LatLng(-33.875344, 151.209981);
+    private static final LatLng MANGROVE = new LatLng(-21.142175, 149.200571);
+    private static final LatLng BARA = new LatLng(-33.859061, 151.214098);
+    private static final LatLng WTS = new LatLng(-27.467610, 153.022034);
+    private static final LatLng WARDANDI = new LatLng(-33.320350, 115.646415);
+    private static final LatLng COLLYMONGLE = new LatLng(-29.462113, 148.739310);
+    private static final LatLng WHALE = new LatLng(-33.988918, 151.231964);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,6 +148,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
         System.out.println("Marker Added");
         addMuseumsToMap();
         addTrailsToMap();
+        addOutdoorsToMap();
         //.icon(Bitmapdescriptor
         //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
     }
@@ -335,5 +347,79 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker10);
 
+    }
+
+    private void addOutdoorsToMap() {
+        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.outdoor);
+
+        MarkerOptions marker1 = new MarkerOptions();
+        marker1.position(REDFERN)
+                .title("Welcome to Redfern")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker1);
+
+        MarkerOptions marker2 = new MarkerOptions();
+        marker2.position(JENNYMUNRO)
+                .title("Portrait of Jenny Munro")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker2);
+
+        MarkerOptions marker3 = new MarkerOptions();
+        marker3.position(BANDB)
+                .title("Bibles and Bullets")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker3);
+
+        MarkerOptions marker4 = new MarkerOptions();
+        marker4.position(YININMADYEMI)
+                .title("Yininmadyemi Memorial")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker4);
+
+        MarkerOptions marker5 = new MarkerOptions();
+        marker5.position(MANGROVE)
+                .title("Mangrove Cap")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker5);
+
+        MarkerOptions marker6 = new MarkerOptions();
+        marker6.position(WTS)
+                .title("Witnessing to Silence")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker6);
+
+        MarkerOptions marker7 = new MarkerOptions();
+        marker7.position(BARA)
+                .title("Bara")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker7);
+
+        MarkerOptions marker8 = new MarkerOptions();
+        marker8.position(WARDANDI)
+                .title("Wardandi Boodja")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker8);
+
+        MarkerOptions marker9 = new MarkerOptions();
+        marker9.position(COLLYMONGLE)
+                .title("Collymongle Carved Trees")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker9);
+
+        MarkerOptions marker10 = new MarkerOptions();
+        marker10.position(WHALE)
+                .title("Whale Carving")
+                .draggable(true)
+                .icon(convertDrawableToBitmap(drawable));
+        mMap.addMarker(marker10);
     }
 }
