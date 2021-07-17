@@ -3,25 +3,37 @@ package com.example.infs3605;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
-public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> {
+public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> implements Filterable {
 
-    private ArrayList<String> artName;
+    private ArrayList<Art> mArtworks;
+    private ArrayList<Art> mArtworksFiltered;
     private RecyclerViewClickListener mListener;
 
-    public GalleryAdapter(ArrayList<String> name, RecyclerViewClickListener listener){
-        artName = name;
+    public GalleryAdapter(ArrayList<Art> artworks, RecyclerViewClickListener listener){
+        mArtworks = artworks;
+        mArtworksFiltered = artworks;
         mListener = listener;
     }
 
+    @Override
+    public Filter getFilter() {
+        return null;
+    }
+
     public interface RecyclerViewClickListener {
-        void onClick(View view, String artName);
+        void onClick(View view, String id);
     }
 
     @NonNull
@@ -33,23 +45,33 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
 
     @Override
     public void onBindViewHolder(@NonNull GalleryViewHolder holder, int position) {
-        holder.artName.setText(artName.get(position));
+        Art art = mArtworks.get(position);
+        Glide.with(holder.itemView)
+                .load("http://collectionsearch.nma.gov.au/nmacs-image-download/emu/" + art.getArtIdentifier() + ".640x640_640.jpg")
+                .fitCenter()
+                .into(holder.artCover);
+        holder.artName.setText(art.getArtTitle());
+        holder.artType.setText(art.getArtType());
+        holder.itemView.setTag(art.getArtId());
     }
 
     @Override
     public int getItemCount() {
-        return artName.size();
+        return mArtworksFiltered.size();
     }
 
     public static class GalleryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView artName;
+        public ImageView artCover;
+        public TextView artName, artType;
         private RecyclerViewClickListener listener;
 
         public GalleryViewHolder(@NonNull View itemView, RecyclerViewClickListener mListener) {
             super(itemView);
             this.listener = mListener;
             itemView.setOnClickListener(this);
+            artCover = itemView.findViewById(R.id.artCover);
             artName = itemView.findViewById(R.id.artName);
+            artType = itemView.findViewById(R.id.artType);
         }
 
         public void onClick(View v) {
