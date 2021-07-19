@@ -34,28 +34,14 @@ public class ArtGallery extends AppCompatActivity {
         setTitle("Art Gallery");
 
         mRecyclerView = findViewById(R.id.display_rv);
-
-        ArrayList artItems = new ArrayList<String>();
-        artItems.add("Art 1");
-        artItems.add("Art 2");
-        artItems.add("Art 3");
-        artItems.add("Art 4");
-        artItems.add("Art 5");
-        artItems.add("Art 6");
-        artItems.add("Art 7");
-        artItems.add("Art 8");
-        artItems.add("Art 9");
-        artItems.add("Art 10");
-
-
         GalleryAdapter.RecyclerViewClickListener galleryListener = new GalleryAdapter.RecyclerViewClickListener() {
             @Override
-            public void onClick(View view, String art) {
-                launchSubPage("detail");
+            public void onClick(View view, String id) {
+                launchDetailActivity(id);
             }
         };
 
-        mAdapter = new GalleryAdapter(artItems, galleryListener);
+        mAdapter = new GalleryAdapter(Art.getArtworks(), galleryListener);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL,false);
         mRecyclerView.setLayoutManager(gridLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
@@ -152,8 +138,9 @@ public class ArtGallery extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void launchSubPage (String message) {
+    private void launchDetailActivity(String message) {
         Intent intent = new Intent(this, Detail.class);
+        intent.putExtra(Detail.INTENT_MESSAGE, message);
         startActivity(intent);
     }
 }
