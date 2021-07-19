@@ -115,7 +115,7 @@ public class OffersFrag extends Fragment {
     @Override
      public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_offers_filter, menu);
-        SearchView SearchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        SearchView SearchView = (SearchView) menu.findItem(R.id.events_search).getActionView();
         SearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
 

@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.widget.SearchView;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -26,6 +29,8 @@ public class EventsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private SearchView eventSv;
+    private EventsAdapter mEventAdapter;
 
     public EventsFragment() {
         // Required empty public constructor
@@ -73,9 +78,29 @@ public class EventsFragment extends Fragment {
             }
         };
 
-        EventsAdapter mEventAdapter = new EventsAdapter(Event.getEvents(), listener);
+        mEventAdapter = new EventsAdapter(Event.getEvents(), listener);
         eventRecyclerView.setAdapter(mEventAdapter);
+        setHasOptionsMenu(true);
         return rootEventView;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.events_menu, menu);
+        eventSv = (SearchView) menu.findItem(R.id.events_search).getActionView();
+        eventSv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                mEventAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                mEventAdapter.getFilter().filter(query);
+                return false;
+            }
+        });
     }
 
     private void launchDetailEventsActivity(String message) {

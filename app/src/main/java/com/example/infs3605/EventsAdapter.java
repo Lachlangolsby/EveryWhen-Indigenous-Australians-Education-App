@@ -3,6 +3,8 @@ package com.example.infs3605;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,13 +14,49 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewHolder> {
+public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewHolder> implements Filterable {
     private Listener eventListener;
     private ArrayList<Event> eventsList;
+    private List<Event> filteredEventList;
 
     public EventsAdapter(ArrayList<Event> events, Listener listener) {
         eventsList = events;
+        filteredEventList = events;
         eventListener = listener;
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+
+                String charString = constraint.toString();
+
+                if(charString.isEmpty()) {
+                    filteredEventList = eventsList;
+                }else{
+                    List<Event> eventFilterList = new ArrayList<>();
+
+                    for (Event event : filteredEventList){
+                        if(event.getEventName().toLowerCase().contains(charString.toLowerCase())){
+                            eventFilterList.add(event);
+                        }
+                    }
+
+                    filteredEventList = eventFilterList;
+                }
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = filteredEventList;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                filteredEventList = (List<Event>) results.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
     public interface Listener {
@@ -34,7 +72,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
 
     @Override
     public void onBindViewHolder(@NonNull EventsAdapter.EventViewHolder holder, int position) {
-        Event event = eventsList.get(position);
+        Event event = filteredEventList.get(position);
         holder.eventName.setText(event.getEventName());
         holder.eventMonthDate.setText(event.getEventMonthDate());
         holder.eventSuburb.setText(event.getEventSuburb());
@@ -46,7 +84,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
 
     @Override
     public int getItemCount() {
-        return eventsList.size();
+        return filteredEventList.size();
     }
 
     public static class EventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
