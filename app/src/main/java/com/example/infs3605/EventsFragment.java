@@ -1,5 +1,6 @@
 package com.example.infs3605;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -68,11 +69,18 @@ public class EventsFragment extends Fragment {
         EventsAdapter.Listener listener = new EventsAdapter.Listener() {
             @Override
             public void onClick(View view, String eventName) {
+                launchDetailEventsActivity(eventName);
             }
         };
 
         EventsAdapter mEventAdapter = new EventsAdapter(Event.getEvents(), listener);
         eventRecyclerView.setAdapter(mEventAdapter);
         return rootEventView;
+    }
+
+    private void launchDetailEventsActivity(String message) {
+        Intent intent = new Intent(this.getContext(), EventsDetailActivity.class);
+        intent.putExtra(EventsDetailActivity.EVENT_MESSAGE, message);
+        startActivity(intent);
     }
 }

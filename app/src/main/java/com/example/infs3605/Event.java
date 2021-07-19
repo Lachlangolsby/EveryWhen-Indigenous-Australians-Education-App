@@ -3,13 +3,14 @@ package com.example.infs3605;
 import java.util.ArrayList;
 
 public class Event {
-    public Event(String eventName, String eventDate, String eventLocation, String eventSuburb, String eventMonthDate, int eventImageId) {
+    public Event(String eventName, String eventDate, String eventLocation, String eventSuburb, String eventMonthDate, int eventImageId, String eventDescription) {
         this.eventName = eventName;
         this.eventDate = eventDate;
         this.eventLocation = eventLocation;
         this.eventSuburb = eventSuburb;
         this.eventMonthDate = eventMonthDate;
         this.eventImageId = eventImageId;
+        this.eventDescription = eventDescription;
     }
 
     private String eventName;
@@ -17,6 +18,16 @@ public class Event {
     private String eventLocation;
     private String eventSuburb;
     private String eventMonthDate;
+    private String eventDescription;
+    private int eventImageId;
+
+    public String getEventDescription() {
+        return eventDescription;
+    }
+
+    public void setEventDescription(String eventDescription) {
+        this.eventDescription = eventDescription;
+    }
 
     public int getEventImageId() {
         return eventImageId;
@@ -25,8 +36,6 @@ public class Event {
     public void setEventImageId(int eventImageId) {
         this.eventImageId = eventImageId;
     }
-
-    private int eventImageId;
 
     public String getEventName() {
         return eventName;
@@ -72,10 +81,10 @@ public class Event {
         ArrayList<Event> events = new ArrayList<>();
         events.add(new Event("Aboriginal Cultural Heritage Walk", "Sun, 8:00am - 2:00pm",
                 "North Sydney Council, 200 Miller St", "North Sydney, NSW", "27 JUN",
-                R.drawable.aboriginal_heritage_walk));
+                R.drawable.aboriginal_heritage_walk,"attend this event pls"));
         events.add(new Event("National Indigenous Art Fair", "Sat, 9:00am - 10:00pm",
                 "Sydney Cove Terminal, 130 Argyle St", "The Rocks, NSW", "03 JUL",
-                R.drawable.indigenous_art_fair));
+                R.drawable.indigenous_art_fair, "ye buy some art"));
         return events;
     }
 
