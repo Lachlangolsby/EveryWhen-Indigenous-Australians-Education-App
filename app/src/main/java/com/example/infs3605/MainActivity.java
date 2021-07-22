@@ -1,9 +1,11 @@
 package com.example.infs3605;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,13 +36,15 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser user;
     FirebaseAuth fAuth;
 
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("");
         setContentView(R.layout.activity_main);
 
-        //Set Title
-        setTitle("Everywhen");
+
+
 
         mRecyclerView = findViewById(R.id.display_rv);
         mRecyclerView.setHasFixedSize(true);

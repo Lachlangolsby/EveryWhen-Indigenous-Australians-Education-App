@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/view_container"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
+    android:background="@color/color_primary"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:background="@color/color_primary"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <LinearLayout
@@ -16,10 +17,18 @@
         android:orientation="vertical"
         android:padding="@dimen/activity_horizontal_margin">
 
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="101dp"
+            android:layout_height="68dp"
+            android:layout_gravity="clip_vertical"
+            app:srcCompat="@drawable/applogo" />
+
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/cambay"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
             android:text="Everywhen"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
