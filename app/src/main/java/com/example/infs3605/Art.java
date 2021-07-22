@@ -2,7 +2,18 @@ package com.example.infs3605;
 
 import java.util.ArrayList;
 
+
 public class Art {
+
+    private String artId;
+    private String artTitle;
+    private String artIdentifier;
+    private String artType;
+    private String artDate;
+    private String artRegion;
+    private String artCreator;
+    private String artPhysicalDescription;
+
     public Art(String artId, String artTitle, String artIdentifier, String artType, String artDate, String artRegion, String artCreator, String artPhysicalDescription) {
         this.artId = artId;
         this.artTitle = artTitle;
@@ -14,14 +25,6 @@ public class Art {
         this.artPhysicalDescription = artPhysicalDescription;
     }
 
-    private String artId;
-    private String artTitle;
-    private String artIdentifier;
-    private String artType;
-    private String artDate;
-    private String artRegion;
-    private String artCreator;
-    private String artPhysicalDescription;
 
     public String getArtId() {
         return artId;
@@ -242,13 +245,4 @@ public class Art {
         return artworks;
     }
 
-    public static Art getArt(String id) {
-        ArrayList<Art> artworks = Art.getArtworks();
-        for(final Art art : artworks) {
-            if(art.getArtTitle().equals(id)) {
-                return art;
-            }
-        }
-        return null;
-    }
 }

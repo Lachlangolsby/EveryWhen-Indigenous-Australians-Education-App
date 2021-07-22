@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
+//import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -117,7 +117,7 @@ public class ArtGallery extends AppCompatActivity {
                     startActivity(Intent.createChooser(mSharingIntent,"Share Score Via"));
                     break;
                 case R.id.mLogout:
-                    FirebaseAuth.getInstance().signOut();
+                    //FirebaseAuth.getInstance().signOut();
                     Toast.makeText(ArtGallery.this, "You are Logged Out", Toast.LENGTH_SHORT).show();
                     Intent logout = new Intent(ArtGallery.this, Welcome.class);
                     startActivity(logout);

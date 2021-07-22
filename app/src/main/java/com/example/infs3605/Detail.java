@@ -7,6 +7,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
+
 public class Detail extends AppCompatActivity {
 
     public static final String INTENT_MESSAGE = "au.edu.unsw.infs3605.assignment.intent_message";
@@ -17,7 +21,8 @@ public class Detail extends AppCompatActivity {
     private TextView mDate;
     private TextView mCreator;
     private TextView mDescription;
-    private ImageView mArt;
+    private ImageView mImage;
+    String message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,20 +35,27 @@ public class Detail extends AppCompatActivity {
         mDate = findViewById(R.id.tvArtDate);
         mCreator = findViewById(R.id.tvArtCreator);
         mDescription = findViewById(R.id.tvArtDescription);
-        mArt = findViewById(R.id.ivArt);
+        mImage = findViewById(R.id.ivArt);
 
         Intent intent = getIntent();
-        String id = intent.getStringExtra(INTENT_MESSAGE);
+        message = intent.getStringExtra(INTENT_MESSAGE);
 
-        Art art = Art.getArt(id);
-            mTitle.setText(art.getArtTitle());
-            mType.setText(art.getArtType());
-            mRegion.setText(art.getArtRegion());
-            mDate.setText(art.getArtDate());
-            mCreator.setText(art.getArtCreator());
-            mDescription.setText(art.getArtPhysicalDescription());
-//            int poster = getResources().getIdentifier("au.edu.unsw.infs3634.movierecommender:drawable/poster" + movie.getId(), null, null);
-//            mPoster.setImageResource(poster);
+        ArrayList<Art> artGallery = Art.getArtworks();
+        for(final Art art : artGallery){
+            if(art.getArtId().equals(message)){
+                mTitle.setText(art.getArtTitle());
+                mType.setText(art.getArtType());
+                mRegion.setText(art.getArtRegion());
+                mDate.setText(art.getArtDate());
+                mCreator.setText(art.getArtCreator());
+                mDescription.setText(art.getArtPhysicalDescription());
+                Glide.with(this)
+                        .load("http://collectionsearch.nma.gov.au/nmacs-image-download/emu/" + art.getArtIdentifier() + ".640x640_640.jpg")
+                        .fitCenter()
+                        .into(mImage);
+            }
+        }
+
 
     }
 }
