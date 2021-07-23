@@ -185,105 +185,90 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
         MarkerOptions marker1 = new MarkerOptions();
         marker1.position(COOEE1)
                 .title("Cooee Art Gallery")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker1);
 
         MarkerOptions marker2 = new MarkerOptions();
         marker2.position(COOEE2)
                 .title("Cooee Art Gallery")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker2);
 
         MarkerOptions marker3 = new MarkerOptions();
         marker3.position(WENTWORTH)
                 .title("Wentworth Gallery")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker3);
 
         MarkerOptions marker4 = new MarkerOptions();
         marker4.position(ABORIGINALCONTEMPORARY)
                 .title("Aboriginal Contemporary")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker4);
 
         MarkerOptions marker5 = new MarkerOptions();
         marker5.position(SPIRIT)
                 .title("Spirit Gallery")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker5);
 
         MarkerOptions marker6 = new MarkerOptions();
         marker6.position(KARLANGU)
                 .title("Karlangu Aboriginal Art Centre")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker6);
 
         MarkerOptions marker7 = new MarkerOptions();
         marker7.position(NSW)
                 .title("Art Gallery of New South Wales")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker7);
 
         MarkerOptions marker8 = new MarkerOptions();
         marker8.position(MCA)
                 .title("Museum of Contemporary Art")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker8);
 
         MarkerOptions marker9 = new MarkerOptions();
         marker9.position(BURRUNJU)
                 .title("Burrunju Art Gallery")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker9);
 
         MarkerOptions marker10 = new MarkerOptions();
         marker10.position(NGA)
                 .title("National Gallery of Australia")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker10);
 
         MarkerOptions marker11 = new MarkerOptions();
         marker11.position(DREAMINGS)
                 .title("Aboriginal Dreamings Gallery")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker11);
 
         MarkerOptions marker12 = new MarkerOptions();
         marker12.position(BIRRUNGA)
                 .title("Birrunga Gallery & Dining")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker12);
 
         MarkerOptions marker13 = new MarkerOptions();
         marker13.position(REDSAND)
                 .title("Red Sand Art Gallery")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker13);
 
         MarkerOptions marker14 = new MarkerOptions();
         marker14.position(BOOMERANG)
                 .title("Boomerang Art Aboriginal Art Gallery")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker14);
 
         MarkerOptions marker15 = new MarkerOptions();
         marker15.position(WOOLLOONGABBA)
                 .title("Woolloongabba Art Gallery")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker15);
     }
@@ -295,70 +280,60 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
         MarkerOptions marker1 = new MarkerOptions();
         marker1.position(GREATNORTH)
                 .title("Great North Walk")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker1);
 
         MarkerOptions marker2 = new MarkerOptions();
         marker2.position(FINCHLEY)
                 .title("Finchley Track")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker2);
 
         MarkerOptions marker3 = new MarkerOptions();
         marker3.position(SYDS)
                 .title("Syd's Rapids & Aboriginal Heritage Trail")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker3);
 
         MarkerOptions marker4 = new MarkerOptions();
         marker4.position(UBIRR)
                 .title("Ubirr Aboriginal Art Walk")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker4);
 
         MarkerOptions marker5 = new MarkerOptions();
         marker5.position(KARIONG)
                 .title("Kariong to Bulgandry Aboriginal Art Site")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker5);
 
         MarkerOptions marker6 = new MarkerOptions();
         marker6.position(HERITAGE)
                 .title("Aboriginal Heritage Walk")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker6);
 
         MarkerOptions marker7 = new MarkerOptions();
         marker7.position(MURRAMARANG)
                 .title("Murramarang Aboriginal Area Track")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker7);
 
         MarkerOptions marker8 = new MarkerOptions();
         marker8.position(BUNDIAN)
                 .title("Bundian Way")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker8);
 
         MarkerOptions marker9 = new MarkerOptions();
         marker9.position(YAPPA)
                 .title("Mulgowan (Yappa) Aboriginal Art Site Walking Track")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker9);
 
         MarkerOptions marker10 = new MarkerOptions();
         marker10.position(NOURLANGIE)
                 .title("Nourlangie Trail")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker10);
 
@@ -370,70 +345,60 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
         MarkerOptions marker1 = new MarkerOptions();
         marker1.position(REDFERN)
                 .title("Welcome to Redfern")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker1);
 
         MarkerOptions marker2 = new MarkerOptions();
         marker2.position(JENNYMUNRO)
                 .title("Portrait of Jenny Munro")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker2);
 
         MarkerOptions marker3 = new MarkerOptions();
         marker3.position(BANDB)
                 .title("Bibles and Bullets")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker3);
 
         MarkerOptions marker4 = new MarkerOptions();
         marker4.position(YININMADYEMI)
                 .title("Yininmadyemi Memorial")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker4);
 
         MarkerOptions marker5 = new MarkerOptions();
         marker5.position(MANGROVE)
                 .title("Mangrove Cap")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker5);
 
         MarkerOptions marker6 = new MarkerOptions();
         marker6.position(WTS)
                 .title("Witnessing to Silence")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker6);
 
         MarkerOptions marker7 = new MarkerOptions();
         marker7.position(BARA)
                 .title("Bara")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker7);
 
         MarkerOptions marker8 = new MarkerOptions();
         marker8.position(WARDANDI)
                 .title("Wardandi Boodja")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker8);
 
         MarkerOptions marker9 = new MarkerOptions();
         marker9.position(COLLYMONGLE)
                 .title("Collymongle Carved Trees")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker9);
 
         MarkerOptions marker10 = new MarkerOptions();
         marker10.position(WHALE)
                 .title("Whale Carving")
-                .draggable(true)
                 .icon(convertDrawableToBitmap(drawable));
         mMap.addMarker(marker10);
     }
