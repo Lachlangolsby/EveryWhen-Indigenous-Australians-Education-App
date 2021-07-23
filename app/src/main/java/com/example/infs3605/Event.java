@@ -79,12 +79,38 @@ public class Event {
 
     public static ArrayList<Event> getEvents() {
         ArrayList<Event> events = new ArrayList<>();
-        events.add(new Event("Aboriginal Cultural Heritage Walk", "Sun, 8:00am - 2:00pm",
-                "North Sydney Council, 200 Miller St", "North Sydney, NSW", "27 JUN",
-                R.drawable.aboriginal_heritage_walk,"attend this event pls"));
-        events.add(new Event("National Indigenous Art Fair", "Sat, 9:00am - 10:00pm",
-                "Sydney Cove Terminal, 130 Argyle St", "The Rocks, NSW", "03 JUL",
-                R.drawable.indigenous_art_fair, "ye buy some art"));
+        events.add(new Event("National Indigenous Music Awards 2021", "Sat, 6:30 – 10:00 pm ACST",
+                "George Brown Darwin Botanic Gardens, Gilruth Ave & Gardens Rd", " The Gardens, NT", "7 AUG",
+                R.drawable.nimas_baker_boy, "A celebration of First Nations music and musicians from across Australia. Recognising" +
+                " achievement and excellence in the Indigenous music sector the awards will this year be broadcast through NITV"));
+        events.add(new Event("Piinpi: Contemporary Indigenous Fashion", "20 Feb 2021 to 8 Aug 2021",
+                "National Museum of Australia, Lawson Cresent", "Acton, ACT", "AUG",
+                R.drawable.piinpi_exhibit_event, "Featuring the work of around 60 Indigenous artists and designers from the inner city" +
+                " to remote desert art centres, Piinpi: Contemporary Indigenous Fashion celebrates Australia’s leading First Nations creatives."));
+        events.add(new Event("Aboriginal Storytime at the Gallery", "Tue, 11:30 am – 12:30 pm",
+                "Counihan Gallery, 233 Sydney Rd", "Brunswick, VIC", "10 AUG",
+                R.drawable.storytime_gallery, "Join us for a special First Nations Storytime and explore Banj Banj/nawnta."));
+        events.add(new Event("Indigenous Food and Agriculture", "Fri, 6:30 – 7:45 pm",
+                "The Royal Society of Victoria, 8 La Trobe St", "Melbourne, VIC", "13 AUG",
+                R.drawable.indigenous_food_agriculture, "Come yarn about native foods, healthy eating and Australian Indigenous" +
+                " farmers."));
+        events.add(new Event("Cairns Indigenous Art Fair", "17 Aug 2021 to 22 Aug 2021",
+                "TBA", "Cairns City, QLD", "AUG",
+                R.drawable.cairns_fair, "From the 17-22 August, delight in discovering the richness of Queensland’s Aboriginal and Torres" +
+                " Strait Islander cultures in a series of art installations, performances and festivals across Cairns."));
+        events.add(new Event("Winhangadurinya: Aboriginal Meditation", "Sat, 10:30 am – 1:00 pm",
+                "Australian Museum, 1 William St", "Darlinghurst, NSW", "21 AUG",
+                R.drawable.meditation_event, "This unique workshop offers both an authentic and heartfelt" +
+                " introduction to First Nations culture and a chance to take time out in a hectic world."));
+        events.add(new Event("Indigenous Science Experience at Redfern", "Sat, 10:00 am – 3:00 pm",
+                "Redfern Community Centre, 29-53 Hugo St", "Redfern, NSW", "21 AUG",
+                R.drawable.science_experience_event_redfern, "Indigenous Science Experience at Redfern at Redfern " +
+                "Community Centre, 29-53 Hugo Street, Sydney, NSW, Australia on Sat Aug 21 2021 at 10:00 am to 03:00 pm"));
+        events.add(new Event("Unsettled film series: High Ground", "Sat, 12:30 – 2:30 pm",
+                "Australian Museum, 1 William St", "Darlinghurst, NSW", "28 AUG",
+                R.drawable.hero_high_ground, "Set against the stunning landscapes of 1930s Arnhem Land, High Ground chronicles the quest" +
+                " of a young Aboriginal man to save the last of his family."));
+
         return events;
     }
 
