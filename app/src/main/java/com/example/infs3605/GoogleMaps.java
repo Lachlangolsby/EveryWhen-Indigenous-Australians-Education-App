@@ -38,6 +38,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +52,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
     Marker mCurrLocationMarker;
     FusedLocationProviderClient mFusedLocationClient;
     CheckBox museums, publicArt, trails;
+    FloatingActionButton fab;
 
     //Define location list for each category
     List<Marker> museumsList = new ArrayList<>();
@@ -156,6 +158,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
         museums = (CheckBox) findViewById(R.id.cMuseums);
         publicArt = (CheckBox) findViewById(R.id.cPublicArt);
         trails = (CheckBox) findViewById(R.id.cTrails);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         museums.setChecked(true);
         publicArt.setChecked(true);
         trails.setChecked(true);
@@ -205,6 +208,15 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
                         marker.setVisible(false);
                     }
                 }
+            }
+        });
+
+        //Exit map, return to dashboard
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GoogleMaps.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
