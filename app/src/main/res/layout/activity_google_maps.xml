@@ -1,9 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GoogleMaps" />
+    tools:context=".GoogleMaps">
+
+    <CheckBox
+        android:id="@+id/cMuseums"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:button="@drawable/custom_museum_checkbox"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:text="  Museums"
+        android:textAllCaps="false"
+        android:textColor="@drawable/custom_museum_text"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        map:layout_constraintBottom_toBottomOf="@+id/cTrails"
+        map:layout_constraintEnd_toStartOf="@id/cPublicArt"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toTopOf="@+id/cPublicArt" />
+
+    <CheckBox
+        android:id="@+id/cPublicArt"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:button="@drawable/custom_publicart_checkbox"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:text="  Public Art"
+        android:textAllCaps="false"
+        android:textColor="@drawable/custom_publicart_text"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        map:layout_constraintBottom_toBottomOf="@+id/cTrails"
+        map:layout_constraintEnd_toStartOf="@id/cTrails"
+        map:layout_constraintStart_toEndOf="@id/cMuseums"
+        map:layout_constraintTop_toTopOf="@+id/cTrails" />
+
+    <CheckBox
+        android:id="@+id/cTrails"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:button="@drawable/custom_trail_checkbox"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:text="  Trails"
+        android:textAllCaps="false"
+        android:textColor="@drawable/custom_trail_text"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintStart_toEndOf="@id/cPublicArt" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        map:layout_constraintBottom_toTopOf="@+id/cPublicArt"
+        map:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
