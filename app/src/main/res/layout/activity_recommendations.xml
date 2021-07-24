@@ -5,23 +5,20 @@
     android:layout_width="160dp"
     android:layout_height="160dp"
     android:layout_margin="10dp"
-    android:background="#CAC6C6"
+    android:background="#FFFFFF"
     android:clickable="true"
     android:focusable="true">
 
-    <TextView
-
-        android:id="@+id/name"
-        android:layout_width="100dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="56dp"
-        android:textSize="30dp"
-        android:textColor="@color/black"
+    <ImageView
+        android:id="@+id/rImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clickable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,7 +25,7 @@
             app:srcCompat="@drawable/applogo" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/rName"
             android:layout_width="match_parent"
             android:layout_height="47dp"
             android:fontFamily="@font/cambay"

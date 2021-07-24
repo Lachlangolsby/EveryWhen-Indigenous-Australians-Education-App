@@ -16,7 +16,6 @@ import android.widget.Toast;
 import com.google.android.material.navigation.NavigationView;
 //import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.ArrayList;
 
 public class ArtGallery extends AppCompatActivity {
 
@@ -30,10 +29,10 @@ public class ArtGallery extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_art_gallery);
+        setContentView(R.layout.fragment_art_gallery);
         setTitle("Art Gallery");
 
-        mRecyclerView = findViewById(R.id.display_rv);
+        mRecyclerView = findViewById(R.id.art_gallery_rv);
         GalleryAdapter.RecyclerViewClickListener galleryListener = new GalleryAdapter.RecyclerViewClickListener() {
             @Override
             public void onClick(View view, String id) {

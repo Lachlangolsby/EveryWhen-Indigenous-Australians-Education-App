@@ -5,9 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.GridLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,13 +15,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -44,29 +39,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
-
-        mRecyclerView = findViewById(R.id.display_rv);
+        mRecyclerView = findViewById(R.id.art_gallery_rv);
         mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        ArrayList items = new ArrayList<String>();
-        items.add("L1");
-        items.add("L2");
-        items.add("L3");
-        items.add("L4");
-        items.add("L5");
-        items.add("L6");
-
-        TopSearchAdapter.RecyclerViewClickListener listener = new TopSearchAdapter.RecyclerViewClickListener() {
+        RecommendationsAdapter.RecyclerViewClickListener recommendationsListener = new RecommendationsAdapter.RecyclerViewClickListener() {
             @Override
-            public void onClick(View view, String locationName) {
-                //launchSubPage("detail");
+            public void onClick(View view, String id) {
+                launchDetailActivity(id);
             }
         };
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-
-        mAdapter = new TopSearchAdapter(items, listener);
+        mAdapter = new RecommendationsAdapter(Art.getArtworks(),recommendationsListener);
         mRecyclerView.setAdapter(mAdapter);
 
         mainGrid = (GridLayout) findViewById(R.id.mainGrid);
@@ -207,6 +191,12 @@ public class MainActivity extends AppCompatActivity {
             }
             return super.onOptionsItemSelected(item);
         }
+
+    private void launchDetailActivity(String message) {
+        Intent intent = new Intent(this, Detail.class);
+        intent.putExtra(Detail.INTENT_MESSAGE, message);
+        startActivity(intent);
+    }
 
 
     }

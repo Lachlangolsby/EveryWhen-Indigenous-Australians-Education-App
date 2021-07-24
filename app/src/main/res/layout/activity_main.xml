@@ -34,18 +34,17 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10sp"
             android:paddingTop="5sp"
-            android:text="Top Searches "
+            android:text="Recommendations"
             android:textColor="#000000"
             android:textSize="28sp"
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/display_rv"
+            android:id="@+id/art_gallery_rv"
             android:layout_width="match_parent"
             android:layout_height="155dp"
             android:layout_marginStart="17dp"
             android:layout_marginLeft="17dp"
-            android:layout_marginTop="15dp"
             app:layout_constraintStart_toStartOf="@+id/top_search_title"
             app:layout_constraintTop_toBottomOf="@+id/top_search_title">
 
