@@ -20,6 +20,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.Parcelable;
+import android.view.View;
+import android.widget.CheckBox;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -37,6 +39,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
@@ -47,6 +50,12 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
     Location mLastLocation;
     Marker mCurrLocationMarker;
     FusedLocationProviderClient mFusedLocationClient;
+    CheckBox museums, publicArt, trails;
+
+    //Define location list for each category
+    List<Marker> museumsList = new ArrayList<>();
+    List<Marker> trailsList = new ArrayList<>();
+    List<Marker> publicArtList = new ArrayList<>();
 
     private static final LatLng COOEE1 = new LatLng(-33.890933, 151.270582);
     private static final LatLng COOEE2 = new LatLng(-33.894292, 151.214739);
@@ -142,10 +151,63 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
         }
 
         mMap.getUiSettings().setZoomControlsEnabled(true);
+        addMarkersToMap();
 
-        addMuseumsToMap();
-        addTrailsToMap();
-        addOutdoorsToMap();
+        museums = (CheckBox) findViewById(R.id.cMuseums);
+        publicArt = (CheckBox) findViewById(R.id.cPublicArt);
+        trails = (CheckBox) findViewById(R.id.cTrails);
+        museums.setChecked(true);
+        publicArt.setChecked(true);
+        trails.setChecked(true);
+
+        //check museum check box
+        museums.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (museums.isChecked()) {
+                    for (Marker marker : museumsList) {
+                        marker.setVisible(true);
+                    }
+                } else {
+                    for (Marker marker : museumsList) {
+                        marker.setVisible(false);
+                    }
+                }
+            }
+        });
+
+        //check publicArt check box
+        publicArt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (publicArt.isChecked()) {
+                    for (Marker marker : publicArtList) {
+                        marker.setVisible(true);
+                    }
+                } else {
+                    for (Marker marker : publicArtList) {
+                        marker.setVisible(false);
+                    }
+                }
+            }
+        });
+
+        //check trails check box
+        trails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (trails.isChecked()) {
+                    for (Marker marker : trailsList) {
+                        marker.setVisible(true);
+                    }
+                } else {
+                    for (Marker marker : trailsList) {
+                        marker.setVisible(false);
+                    }
+                }
+            }
+        });
+
     }
 
     LocationCallback mLocationCallback = new LocationCallback() {
@@ -178,229 +240,52 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
         return BitmapDescriptorFactory.fromBitmap(bitmap);
     }
 
-    private void addMuseumsToMap()
-    {
-        Drawable drawable=ContextCompat.getDrawable(getApplicationContext(),R.drawable.museum);
+    private void addMarkersToMap() {
 
-        MarkerOptions marker1 = new MarkerOptions();
-        marker1.position(COOEE1)
-                .title("Cooee Art Gallery")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker1);
+        //Add museum pins
+        Drawable museumPin = ContextCompat.getDrawable(getApplicationContext(), R.drawable.museum);
+        museumsList.add(mMap.addMarker(new MarkerOptions().position(COOEE1).title("Cooee Art Gallery").icon(convertDrawableToBitmap(museumPin))));
+        museumsList.add(mMap.addMarker(new MarkerOptions().position(COOEE2).title("Cooee Art Gallery").icon(convertDrawableToBitmap(museumPin))));
+        museumsList.add(mMap.addMarker(new MarkerOptions().position(WENTWORTH).title("Wentworth Gallery").icon(convertDrawableToBitmap(museumPin))));
+        museumsList.add(mMap.addMarker(new MarkerOptions().position(ABORIGINALCONTEMPORARY).title("Aboriginal Contemporary").icon(convertDrawableToBitmap(museumPin))));
+        museumsList.add(mMap.addMarker(new MarkerOptions().position(SPIRIT).title("Spirit Gallery").icon(convertDrawableToBitmap(museumPin))));
+        museumsList.add(mMap.addMarker(new MarkerOptions().position(KARLANGU).title("Karlangu Aboriginal Art Centre").icon(convertDrawableToBitmap(museumPin))));
+        museumsList.add(mMap.addMarker(new MarkerOptions().position(NSW).title("Art Gallery of New South Wales").icon(convertDrawableToBitmap(museumPin))));
+        museumsList.add(mMap.addMarker(new MarkerOptions().position(MCA).title("Museum of Contemporary Art").icon(convertDrawableToBitmap(museumPin))));
+        museumsList.add(mMap.addMarker(new MarkerOptions().position(BURRUNJU).title("Burrunju Art Gallery").icon(convertDrawableToBitmap(museumPin))));
+        museumsList.add(mMap.addMarker(new MarkerOptions().position(NGA).title("National Gallery of Australia").icon(convertDrawableToBitmap(museumPin))));
+        museumsList.add(mMap.addMarker(new MarkerOptions().position(DREAMINGS).title("Aboriginal Dreamings Gallery").icon(convertDrawableToBitmap(museumPin))));
+        museumsList.add(mMap.addMarker(new MarkerOptions().position(BIRRUNGA).title("Birrunga Gallery & Dining").icon(convertDrawableToBitmap(museumPin))));
+        museumsList.add(mMap.addMarker(new MarkerOptions().position(REDSAND).title("Red Sand Art Gallery").icon(convertDrawableToBitmap(museumPin))));
+        museumsList.add(mMap.addMarker(new MarkerOptions().position(BOOMERANG).title("Boomerang Art Aboriginal Art Gallery").icon(convertDrawableToBitmap(museumPin))));
+        museumsList.add(mMap.addMarker(new MarkerOptions().position(WOOLLOONGABBA).title("Woolloongabba Art Gallery").icon(convertDrawableToBitmap(museumPin))));
 
-        MarkerOptions marker2 = new MarkerOptions();
-        marker2.position(COOEE2)
-                .title("Cooee Art Gallery")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker2);
+        //Add trail pins
+        Drawable trailPin = ContextCompat.getDrawable(getApplicationContext(), R.drawable.trail);
+        trailsList.add(mMap.addMarker(new MarkerOptions().position(GREATNORTH).title("Great North Walk").icon(convertDrawableToBitmap(trailPin))));
+        trailsList.add(mMap.addMarker(new MarkerOptions().position(FINCHLEY).title("Finchley Track").icon(convertDrawableToBitmap(trailPin))));
+        trailsList.add(mMap.addMarker(new MarkerOptions().position(SYDS).title("Syd's Rapids & Aboriginal Heritage Trail").icon(convertDrawableToBitmap(trailPin))));
+        trailsList.add(mMap.addMarker(new MarkerOptions().position(UBIRR).title("Ubirr Aboriginal Art Walk").icon(convertDrawableToBitmap(trailPin))));
+        trailsList.add(mMap.addMarker(new MarkerOptions().position(KARIONG).title("Kariong to Bulgandry Aboriginal Art Site").icon(convertDrawableToBitmap(trailPin))));
+        trailsList.add(mMap.addMarker(new MarkerOptions().position(HERITAGE).title("Aboriginal Heritage Walk").icon(convertDrawableToBitmap(trailPin))));
+        trailsList.add(mMap.addMarker(new MarkerOptions().position(MURRAMARANG).title("Murramarang Aboriginal Area Track").icon(convertDrawableToBitmap(trailPin))));
+        trailsList.add(mMap.addMarker(new MarkerOptions().position(BUNDIAN).title("Bundian Way").icon(convertDrawableToBitmap(trailPin))));
+        trailsList.add(mMap.addMarker(new MarkerOptions().position(YAPPA).title("Mulgowan (Yappa) Aboriginal Art Site Walking Track").icon(convertDrawableToBitmap(trailPin))));
+        trailsList.add(mMap.addMarker(new MarkerOptions().position(NOURLANGIE).title("Nourlangie Trail").icon(convertDrawableToBitmap(trailPin))));
 
-        MarkerOptions marker3 = new MarkerOptions();
-        marker3.position(WENTWORTH)
-                .title("Wentworth Gallery")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker3);
+        //Add public art pins
+        Drawable publicArtPin = ContextCompat.getDrawable(getApplicationContext(), R.drawable.outdoor);
+        publicArtList.add(mMap.addMarker(new MarkerOptions().position(REDFERN).title("Welcome to Redfern").icon(convertDrawableToBitmap(publicArtPin))));
+        publicArtList.add(mMap.addMarker(new MarkerOptions().position(JENNYMUNRO).title("Portrait of Jenny Munro").icon(convertDrawableToBitmap(publicArtPin))));
+        publicArtList.add(mMap.addMarker(new MarkerOptions().position(BANDB).title("Bibles and Bullets").icon(convertDrawableToBitmap(publicArtPin))));
+        publicArtList.add(mMap.addMarker(new MarkerOptions().position(YININMADYEMI).title("Yininmadyemi Memorial").icon(convertDrawableToBitmap(publicArtPin))));
+        publicArtList.add(mMap.addMarker(new MarkerOptions().position(MANGROVE).title("Mangrove Cap").icon(convertDrawableToBitmap(publicArtPin))));
+        publicArtList.add(mMap.addMarker(new MarkerOptions().position(BARA).title("Bara").icon(convertDrawableToBitmap(publicArtPin))));
+        publicArtList.add(mMap.addMarker(new MarkerOptions().position(WARDANDI).title("Wardandi Boodja").icon(convertDrawableToBitmap(publicArtPin))));
+        publicArtList.add(mMap.addMarker(new MarkerOptions().position(COLLYMONGLE).title("Collymongle Carved Trees").icon(convertDrawableToBitmap(publicArtPin))));;
+        publicArtList.add(mMap.addMarker(new MarkerOptions().position(WTS).title("Witnessing to Silence").icon(convertDrawableToBitmap(publicArtPin))));
+        publicArtList.add(mMap.addMarker(new MarkerOptions().position(WHALE).title("Whale Carving").icon(convertDrawableToBitmap(publicArtPin))));
 
-        MarkerOptions marker4 = new MarkerOptions();
-        marker4.position(ABORIGINALCONTEMPORARY)
-                .title("Aboriginal Contemporary")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker4);
-
-        MarkerOptions marker5 = new MarkerOptions();
-        marker5.position(SPIRIT)
-                .title("Spirit Gallery")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker5);
-
-        MarkerOptions marker6 = new MarkerOptions();
-        marker6.position(KARLANGU)
-                .title("Karlangu Aboriginal Art Centre")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker6);
-
-        MarkerOptions marker7 = new MarkerOptions();
-        marker7.position(NSW)
-                .title("Art Gallery of New South Wales")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker7);
-
-        MarkerOptions marker8 = new MarkerOptions();
-        marker8.position(MCA)
-                .title("Museum of Contemporary Art")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker8);
-
-        MarkerOptions marker9 = new MarkerOptions();
-        marker9.position(BURRUNJU)
-                .title("Burrunju Art Gallery")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker9);
-
-        MarkerOptions marker10 = new MarkerOptions();
-        marker10.position(NGA)
-                .title("National Gallery of Australia")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker10);
-
-        MarkerOptions marker11 = new MarkerOptions();
-        marker11.position(DREAMINGS)
-                .title("Aboriginal Dreamings Gallery")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker11);
-
-        MarkerOptions marker12 = new MarkerOptions();
-        marker12.position(BIRRUNGA)
-                .title("Birrunga Gallery & Dining")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker12);
-
-        MarkerOptions marker13 = new MarkerOptions();
-        marker13.position(REDSAND)
-                .title("Red Sand Art Gallery")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker13);
-
-        MarkerOptions marker14 = new MarkerOptions();
-        marker14.position(BOOMERANG)
-                .title("Boomerang Art Aboriginal Art Gallery")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker14);
-
-        MarkerOptions marker15 = new MarkerOptions();
-        marker15.position(WOOLLOONGABBA)
-                .title("Woolloongabba Art Gallery")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker15);
-    }
-
-    private void addTrailsToMap()
-    {
-        Drawable drawable=ContextCompat.getDrawable(getApplicationContext(),R.drawable.trail);
-
-        MarkerOptions marker1 = new MarkerOptions();
-        marker1.position(GREATNORTH)
-                .title("Great North Walk")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker1);
-
-        MarkerOptions marker2 = new MarkerOptions();
-        marker2.position(FINCHLEY)
-                .title("Finchley Track")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker2);
-
-        MarkerOptions marker3 = new MarkerOptions();
-        marker3.position(SYDS)
-                .title("Syd's Rapids & Aboriginal Heritage Trail")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker3);
-
-        MarkerOptions marker4 = new MarkerOptions();
-        marker4.position(UBIRR)
-                .title("Ubirr Aboriginal Art Walk")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker4);
-
-        MarkerOptions marker5 = new MarkerOptions();
-        marker5.position(KARIONG)
-                .title("Kariong to Bulgandry Aboriginal Art Site")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker5);
-
-        MarkerOptions marker6 = new MarkerOptions();
-        marker6.position(HERITAGE)
-                .title("Aboriginal Heritage Walk")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker6);
-
-        MarkerOptions marker7 = new MarkerOptions();
-        marker7.position(MURRAMARANG)
-                .title("Murramarang Aboriginal Area Track")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker7);
-
-        MarkerOptions marker8 = new MarkerOptions();
-        marker8.position(BUNDIAN)
-                .title("Bundian Way")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker8);
-
-        MarkerOptions marker9 = new MarkerOptions();
-        marker9.position(YAPPA)
-                .title("Mulgowan (Yappa) Aboriginal Art Site Walking Track")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker9);
-
-        MarkerOptions marker10 = new MarkerOptions();
-        marker10.position(NOURLANGIE)
-                .title("Nourlangie Trail")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker10);
-
-    }
-
-    private void addOutdoorsToMap() {
-        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.outdoor);
-
-        MarkerOptions marker1 = new MarkerOptions();
-        marker1.position(REDFERN)
-                .title("Welcome to Redfern")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker1);
-
-        MarkerOptions marker2 = new MarkerOptions();
-        marker2.position(JENNYMUNRO)
-                .title("Portrait of Jenny Munro")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker2);
-
-        MarkerOptions marker3 = new MarkerOptions();
-        marker3.position(BANDB)
-                .title("Bibles and Bullets")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker3);
-
-        MarkerOptions marker4 = new MarkerOptions();
-        marker4.position(YININMADYEMI)
-                .title("Yininmadyemi Memorial")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker4);
-
-        MarkerOptions marker5 = new MarkerOptions();
-        marker5.position(MANGROVE)
-                .title("Mangrove Cap")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker5);
-
-        MarkerOptions marker6 = new MarkerOptions();
-        marker6.position(WTS)
-                .title("Witnessing to Silence")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker6);
-
-        MarkerOptions marker7 = new MarkerOptions();
-        marker7.position(BARA)
-                .title("Bara")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker7);
-
-        MarkerOptions marker8 = new MarkerOptions();
-        marker8.position(WARDANDI)
-                .title("Wardandi Boodja")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker8);
-
-        MarkerOptions marker9 = new MarkerOptions();
-        marker9.position(COLLYMONGLE)
-                .title("Collymongle Carved Trees")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker9);
-
-        MarkerOptions marker10 = new MarkerOptions();
-        marker10.position(WHALE)
-                .title("Whale Carving")
-                .icon(convertDrawableToBitmap(drawable));
-        mMap.addMarker(marker10);
     }
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;

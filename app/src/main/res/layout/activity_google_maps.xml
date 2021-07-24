@@ -67,6 +67,18 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        map:layout_constraintBottom_toTopOf="@+id/cPublicArt"
+        map:layout_constraintBottom_toTopOf="@+id/textView"
         map:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#440800"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:text="Filter your map results:"
+        android:textColor="#FFFFFF"
+        map:layout_constraintBottom_toTopOf="@+id/cMuseums"
+        map:layout_constraintStart_toStartOf="@+id/cMuseums" />
 </androidx.constraintlayout.widget.ConstraintLayout>
