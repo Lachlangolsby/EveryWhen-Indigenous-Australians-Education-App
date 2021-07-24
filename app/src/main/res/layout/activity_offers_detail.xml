@@ -27,7 +27,7 @@
             android:textColor="#000000"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivOffer" />
+            app:layout_constraintTop_toBottomOf="@+id/ivBrackets" />
 
         <TextView
             android:id="@+id/tvSearch"
@@ -43,7 +43,7 @@
             app:layout_constraintTop_toBottomOf="@+id/ivEmail" />
 
         <ImageView
-            android:id="@+id/ivOffer"
+            android:id="@+id/ivBrackets"
             android:layout_width="385dp"
             android:layout_height="327dp"
             android:layout_marginTop="40dp"
@@ -53,7 +53,7 @@
             app:flow_verticalAlign="center"
             app:layout_constraintBottom_toTopOf="@+id/descriptionTitle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.593"
+            app:layout_constraintHorizontal_bias="0.923"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/qrbrackets" />
@@ -85,7 +85,7 @@
         <TextView
             android:id="@+id/tvDescription"
             android:layout_width="357dp"
-            android:layout_height="59dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="4dp"
@@ -154,13 +154,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:shadowColor="#070707"
             android:text="Contact Information"
             android:textColor="#121010"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivLocation" />
+            app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
 
         <ImageView
             android:id="@+id/ivLocation"
@@ -176,7 +176,7 @@
 
         <TextView
             android:id="@+id/tvAddress"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
@@ -187,16 +187,18 @@
             app:layout_constraintTop_toBottomOf="@+id/tvLocationTitle2" />
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="269dp"
-            android:layout_height="248dp"
-            app:layout_constraintBottom_toBottomOf="@+id/ivOffer"
-            app:layout_constraintEnd_toEndOf="@+id/ivOffer"
-            app:layout_constraintHorizontal_bias="0.56"
-            app:layout_constraintStart_toStartOf="@+id/ivOffer"
-            app:layout_constraintTop_toTopOf="@+id/ivOffer"
-            app:layout_constraintVertical_bias="0.468"
-            app:srcCompat="@drawable/qrpic" />
+            android:id="@+id/ivImage"
+            android:layout_width="283dp"
+            android:layout_height="240dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBrackets"
+            app:layout_constraintEnd_toEndOf="@+id/ivBrackets"
+            app:layout_constraintHorizontal_bias="0.642"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivBrackets"
+            app:layout_constraintVertical_bias="0.494"
+            tools:srcCompat="@tools:sample/avatars" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

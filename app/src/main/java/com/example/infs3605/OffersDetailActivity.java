@@ -46,7 +46,7 @@ public class OffersDetailActivity extends AppCompatActivity {
 
         // 3. attaching declared variables with XML UI features
         mLocation = findViewById(R.id.tvAddress);
-        mImage = findViewById(R.id.ivOffer);
+        mImage = findViewById(R.id.ivImage);
         context = mImage.getContext();
         mEmail = findViewById((R.id.tvEmail));
         mPhone = findViewById((R.id.tvPhone));
@@ -71,7 +71,7 @@ public class OffersDetailActivity extends AppCompatActivity {
                 mPhone.setText(offers.getPhoneNumber());
                 mDescription.setText(offers.getDescription());
              //   mTitle.setText(offers.getOffer());
-              // Picasso.with(context).load(offers.getImageUrl()).resize(125, 145).into(mImage);
+              Picasso.with(context).load(offers.getQR()).resize(290, 250).into(mImage);
 //                Picasso.with(context).load(Attractions.getImageUrl2()).resize(125, 145).into(mImage2);
 //                Picasso.with(context).load(Attractions.getImageUrl3()).resize(125, 145).into(mImage3);
 

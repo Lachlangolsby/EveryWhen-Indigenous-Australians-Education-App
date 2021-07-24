@@ -98,9 +98,9 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OffersView
         DecimalFormat df = new DecimalFormat("#,###,###,###");
         holder.offer.setText(offers.getOffer());
         holder.type.setText(offers.getType());
-        holder.location.setText(offers.getLocation());
+       // holder.location.setText(offers.getLocation());
         holder.description.setText(offers.getDescription());
-        Picasso.with(holder.context).load(offers.getImageUrl()).resize(122, 195).into(holder.image); // Using Picasso API to retrieve images from the web.
+        Picasso.with(holder.context).load(offers.getImageUrl()).resize(122, 150).into(holder.image); // Using Picasso API to retrieve images from the web.
         holder.itemView.setTag(offers.getAttractionCode());
     }
 
@@ -133,7 +133,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OffersView
             image = itemView.findViewById(R.id.ivSight);
             context = itemView.getContext();
             type = itemView.findViewById(R.id.tvType);
-            location = itemView.findViewById(R.id.tvLocation);
+            //location = itemView.findViewById(R.id.tvLocation);
 
         }
 
