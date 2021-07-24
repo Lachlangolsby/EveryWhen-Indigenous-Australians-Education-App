@@ -2,29 +2,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8sp"
-    android:background="#FFFFFF">
+    android:layout_height="163dp"
+    android:padding="10dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fadingEdge="horizontal|vertical"
-        android:requiresFadingEdge="horizontal|vertical"
         app:cardCornerRadius="8dp"
         app:cardElevation="10dp"
-        app:cardPreventCornerOverlap="?android:attr/windowSwipeToDismiss"
+        app:cardPreventCornerOverlap="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="376dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fadingEdge="horizontal|vertical"
-            android:padding="5dp"
-            android:requiresFadingEdge="horizontal|vertical">
+            android:padding="5dp">
 
             <TextView
                 android:id="@+id/tvDescription"
