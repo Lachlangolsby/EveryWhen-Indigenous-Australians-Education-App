@@ -28,7 +28,6 @@ public class Detail extends AppCompatActivity {
     private TextView mTitle;
     private TextView mType;
     private TextView mRegion;
-    private TextView mDate;
     private TextView mCreator;
     private TextView mDescription;
     private ImageView mImage;
@@ -43,7 +42,6 @@ public class Detail extends AppCompatActivity {
         mTitle = findViewById(R.id.tvArtTitle);
         mType = findViewById(R.id.tvArtType);
         mRegion = findViewById(R.id.tvArtRegion);
-        mDate = findViewById(R.id.tvArtDate);
         mCreator = findViewById(R.id.tvArtCreator);
         mDescription = findViewById(R.id.tvArtDescription);
         mImage = findViewById(R.id.ivArt);
@@ -57,8 +55,11 @@ public class Detail extends AppCompatActivity {
                 mTitle.setText(art.getArtTitle());
                 mType.setText(art.getArtType());
                 mRegion.setText(art.getArtRegion());
-                mDate.setText(art.getArtDate());
-                mCreator.setText(art.getArtCreator());
+                if(art.getArtDate().equals("Unknown")){
+                    mCreator.setText(art.getArtCreator());
+                } else {
+                    mCreator.setText(art.getArtCreator() +", "+ art.getArtDate());
+                }
                 mDescription.setText(art.getArtPhysicalDescription());
                 Glide.with(this)
                         .load("http://collectionsearch.nma.gov.au/nmacs-image-download/emu/" + art.getArtIdentifier() + ".640x640_640.jpg")
