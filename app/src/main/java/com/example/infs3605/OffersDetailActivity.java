@@ -79,10 +79,10 @@ public class OffersDetailActivity extends AppCompatActivity {
 
 
                 // 7. calling methods to redirect to google maps and more information respectively. Aswell as assigning them to relevant UI elements
-                mLocation.setOnClickListener(new View.OnClickListener() {
+                findViewById(R.id.tvAddress).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        searchLocation(offers.getLocation());
+                        searchLocation(offers.getSuburb());
                     }
                 });
 
