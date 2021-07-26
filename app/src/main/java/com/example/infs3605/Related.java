@@ -29,6 +29,7 @@ public class Related extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference ;
 
+    private GalleryAdapter.RecyclerViewClickListener mListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +51,10 @@ public class Related extends AppCompatActivity {
                         .setQuery(reference,Art.class)
                         .build();
 
-        FirebaseRecyclerAdapter<Art,Viewholder_Question> firebaseRecyclerAdapter =
-                new FirebaseRecyclerAdapter<Art, Viewholder_Question>(options) {
+        FirebaseRecyclerAdapter<Art, GalleryAdapter.GalleryViewHolder> firebaseRecyclerAdapter =
+                new FirebaseRecyclerAdapter<Art, GalleryAdapter.GalleryViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NotNull Viewholder_Question holder, int position, @NotNull Art model) {
+                    protected void onBindViewHolder(@NotNull GalleryAdapter.GalleryViewHolder holder, int position, @NotNull Art model) {
                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                         final String currentUserid = user.getUid();
 
@@ -68,12 +69,12 @@ public class Related extends AppCompatActivity {
 
                     @NonNull
                     @Override
-                    public Viewholder_Question onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                    public GalleryAdapter.GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
                         View view = LayoutInflater.from(parent.getContext())
                                 .inflate(R.layout.related_item,parent,false);
 
-                        return new Viewholder_Question(view);
+                        return new GalleryAdapter.GalleryViewHolder(view, mListener);
 
 
 

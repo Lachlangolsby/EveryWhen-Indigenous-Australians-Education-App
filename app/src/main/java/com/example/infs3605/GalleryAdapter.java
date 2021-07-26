@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -84,6 +85,15 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
             artCover = itemView.findViewById(R.id.artCover);
             artName = itemView.findViewById(R.id.rel_art_name);
             artType = itemView.findViewById(R.id.rel_art_type);
+        }
+
+        public void setitem(FragmentActivity activity, String name, String type){
+
+            artName = itemView.findViewById(R.id.rel_art_name);
+            artType = itemView.findViewById(R.id.rel_art_type);
+
+            artName.setText(name);
+            artType.setText(type);
         }
 
         public void favouriteChecker(final String postkey) {
