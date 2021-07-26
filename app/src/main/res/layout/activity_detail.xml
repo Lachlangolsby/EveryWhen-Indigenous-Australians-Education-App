@@ -5,7 +5,6 @@
     android:id="@+id/Detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context=".Detail">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,18 +13,44 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvArtTypeDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-light"
+            android:text="Type"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvArtType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="sans-serif-light"
+            android:text="Painting"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/tvArtTypeDesc"
+            app:layout_constraintTop_toTopOf="@+id/tvArtTypeDesc" />
 
         <ImageView
             android:id="@+id/ivArt"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_marginStart="55dp"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginEnd="55dp"
-            android:layout_marginRight="55dp"
-            android:clickable="true"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_marginStart="77dp"
+            android:layout_marginLeft="77dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="77dp"
+            android:layout_marginRight="77dp"
+            android:background="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -35,11 +60,11 @@
             android:id="@+id/tvArtTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginRight="35dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:fontFamily="sans-serif-light"
             android:gravity="center|start|center_vertical"
             android:text="Art Name"
@@ -62,36 +87,6 @@
             app:layout_constraintTop_toBottomOf="@+id/tvArtTitle" />
 
         <TextView
-            android:id="@+id/tvArtDescription"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginRight="35dp"
-            android:layout_marginBottom="10dp"
-            android:background="#FFFFFF"
-            android:fontFamily="sans-serif-light"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvArtDescriptionDesc"
-            app:layout_constraintTop_toBottomOf="@+id/tvArtDescriptionDesc"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/tvArtType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:fontFamily="sans-serif-light"
-            android:text="Painting"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/tvArtTypeDesc"
-            app:layout_constraintTop_toTopOf="@+id/tvArtTypeDesc" />
-
-        <TextView
             android:id="@+id/tvArtRegion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,30 +97,33 @@
             app:layout_constraintTop_toBottomOf="@+id/tvArtCreator" />
 
         <TextView
-            android:id="@+id/tvArtTypeDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="sans-serif-light"
-            android:text="Type"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
             android:id="@+id/tvArtDescriptionDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="sans-serif-light"
             android:text="Physical Description"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/tvArtRegion"
             app:layout_constraintTop_toBottomOf="@+id/tvArtRegion" />
+
+        <TextView
+            android:id="@+id/tvArtDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvArtDescriptionDesc"
+            app:layout_constraintTop_toBottomOf="@+id/tvArtDescriptionDesc"
+            app:layout_constraintVertical_bias="0.0" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
