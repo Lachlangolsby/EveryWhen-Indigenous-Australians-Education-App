@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,6 +57,13 @@ public class EventsDetailActivity extends AppCompatActivity {
             eventFullDate.setText(event.getEventDate());
             eventPhysicalLocation.setText(event.getEventLocation());
             eventDetails.setText(event.getEventDescription());
+
+            findViewById(R.id.eventLocationTv).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showEventLocation(event.getGoogleMapUrl());
+                }
+            });
         }
 
 
@@ -120,7 +129,7 @@ public class EventsDetailActivity extends AppCompatActivity {
                     EventsDetailActivity.this.startActivity(activityChangeIntentP);
                     break;
                 case R.id.mShare:
-                    String shareMessage = "Join, it's fun and eductaional.";
+                    String shareMessage = "Join, it's fun and educational.";
                     Intent mSharingIntent = new Intent(Intent.ACTION_SEND);
                     mSharingIntent.setType("Text/Plain");
                     mSharingIntent.putExtra(Intent.EXTRA_SUBJECT, "MYFinance HighScore");
@@ -148,5 +157,10 @@ public class EventsDetailActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showEventLocation(String googleMapsUrl) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(googleMapsUrl));
+        startActivity(intent);
     }
 }
