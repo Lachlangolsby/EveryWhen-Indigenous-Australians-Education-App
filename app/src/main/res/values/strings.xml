@@ -7,5 +7,8 @@
     <string name="textview" />
     <string name="todo" />
     <string name="test" />
+    <string name="player_error">Error initializing YouTube player: %s</string>
+    <string name="seek_to">Jump To</string>
+    <string name="seek_to_hint">Seconds</string>
     <string name="title_activity_google_maps">Map</string>
 </resources>
