@@ -36,15 +36,15 @@ public class Detail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_art_detail);
         setTitle("Art Gallery");
 
-        mTitle = findViewById(R.id.tvArtTitle);
-        mType = findViewById(R.id.tvArtType);
-        mRegion = findViewById(R.id.tvArtRegion);
-        mCreator = findViewById(R.id.tvArtCreator);
-        mDescription = findViewById(R.id.tvArtDescription);
-        mImage = findViewById(R.id.ivArt);
+        mTitle = findViewById(R.id.artName);
+        mType = findViewById(R.id.artType);
+        mRegion = findViewById(R.id.artRegion);
+        mCreator = findViewById(R.id.artCreator);
+        mDescription = findViewById(R.id.artPhysicalDescription);
+        mImage = findViewById(R.id.artImg);
 
         Intent intent = getIntent();
         message = intent.getStringExtra(INTENT_MESSAGE);

@@ -49,7 +49,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
     @NonNull
     @Override
     public GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_art_gallery, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.art_gallery_item, parent, false);
         return new GalleryViewHolder(v, mListener);
     }
 
@@ -73,9 +73,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
     public static class GalleryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ImageView artCover;
         public TextView artName, artType;
-        ImageButton fvrt_btn;
-        DatabaseReference favouriteref;
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
         private RecyclerViewClickListener listener;
 
         public GalleryViewHolder(@NonNull View itemView, RecyclerViewClickListener mListener) {
@@ -83,54 +80,8 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
             this.listener = mListener;
             itemView.setOnClickListener(this);
             artCover = itemView.findViewById(R.id.artCover);
-            artName = itemView.findViewById(R.id.rel_art_name);
-            artType = itemView.findViewById(R.id.rel_art_type);
-        }
-
-        public void setitem(FragmentActivity activity, String name, String type){
-
-            artName = itemView.findViewById(R.id.rel_art_name);
-            artType = itemView.findViewById(R.id.rel_art_type);
-
-            artName.setText(name);
-            artType.setText(type);
-        }
-
-        public void favouriteChecker(final String postkey) {
-            fvrt_btn = itemView.findViewById(R.id.fvrt_f2_item);
-
-
-            favouriteref = database.getReference("favourites");
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            final String uid = user.getUid();
-
-            favouriteref.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                    if (snapshot.child(postkey).hasChild(uid)) {
-                        fvrt_btn.setImageResource(R.drawable.ic_baseline_star_24);
-                    } else {
-                        fvrt_btn.setImageResource(R.drawable.ic_baseline_star_border_24);
-                    }
-
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-        }
-
-        public void setitemRelated(Application activity, String name, String type){
-
-            TextView nametv = itemView.findViewById(R.id.rel_art_name);
-            TextView typetv = itemView.findViewById(R.id.rel_art_type);
-
-            nametv.setText(name);
-            typetv.setText(type);
-
+            artName = itemView.findViewById(R.id.art_name);
+            artType = itemView.findViewById(R.id.art_type);
         }
 
         public void onClick(View v) {

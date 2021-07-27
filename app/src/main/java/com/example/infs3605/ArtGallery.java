@@ -15,13 +15,14 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class ArtGallery extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
-
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
@@ -45,17 +46,16 @@ public class ArtGallery extends AppCompatActivity {
         mRecyclerView.setLayoutManager(gridLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
+        // imports nav view id written at bottom of pages XML file
+        navigationView = findViewById(R.id.nav_View);
+        // Identifying the Page ID set in the xml (first few lines)
+        drawerLayout = findViewById(R.id.ArtGallery);
 
-    // imports nav view id written at bottom of pages XML file
-    navigationView = findViewById(R.id.nav_View);
-    // Identifying the Page ID set in the xml (first few lines)
-    drawerLayout = findViewById(R.id.ArtGallery);
-
-    //action when navigation menu open and close
-    toggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open,R.string.close);
-    drawerLayout.addDrawerListener(toggle);
-    toggle.syncState();
-    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //action when navigation menu open and close
+        toggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open,R.string.close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     //THIS IS THE CODE TO DISPLAY THE EMAIL OF THE CURRENT USER IN THE NAV MENU
     //CURRENTLY THIS CRASHES THE APP IF NO USER LOGGED IN (I.E. SKIP TO MAIN)
