@@ -5,7 +5,6 @@
     android:id="@+id/EventsDetail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context=".EventsDetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +13,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/monthDateTv"
@@ -126,9 +125,9 @@
             android:id="@+id/eventLocationTv"
             android:layout_width="234dp"
             android:layout_height="54dp"
+            android:background="@color/white"
             android:text="TextView"
             android:textColor="#000000"
-            android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.638"
@@ -141,9 +140,9 @@
             android:layout_width="334dp"
             android:layout_height="113dp"
             android:layout_marginTop="14dp"
+            android:background="@color/white"
             android:text="TextView"
             android:textColor="#000000"
-            android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.415"
