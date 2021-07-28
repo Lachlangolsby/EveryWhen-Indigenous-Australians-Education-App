@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:icon="@drawable/round_sort_white_24dp"
+        android:title="Sort"
+        app:showAsAction="always">
+
+        <menu>
+            <item
+                android:id="@+id/sortType"
+                android:title="Art Type" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/searchList"
+        android:icon="@drawable/baseline_search_white_24dp"
+        android:orderInCategory="100"
+        android:title="search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always" />
+</menu>

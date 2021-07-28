@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private RecommendationsAdapter mAdapter;
     GridLayout mainGrid;
     CardView cv1, cv2, cv3, cv4;
     FirebaseUser user;

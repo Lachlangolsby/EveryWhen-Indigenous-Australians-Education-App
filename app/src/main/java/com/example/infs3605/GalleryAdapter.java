@@ -24,12 +24,18 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> implements Filterable {
 
     private ArrayList<Art> mArtworks;
     private ArrayList<Art> mArtworksFiltered;
     private RecyclerViewClickListener mListener;
+
+    public static final int SORT_AZ = 1;
+    public static final int SORT_TYPE = 2;
+
 
     public GalleryAdapter(ArrayList<Art> artworks, RecyclerViewClickListener listener){
         mArtworks = artworks;
@@ -39,7 +45,32 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
 
     @Override
     public Filter getFilter() {
-        return null;
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint)  {
+                String charString = constraint.toString();
+                if(charString.isEmpty()) {
+                    mArtworksFiltered = mArtworks;
+                } else {
+                    ArrayList<Art> filteredList = new ArrayList<>();
+                    for (Art attraction: mArtworks) {
+                        if(attraction.getArtTitle().toLowerCase().contains(charString.toLowerCase())) {
+                            filteredList.add(attraction);
+                        }
+                    }
+                    mArtworksFiltered = filteredList;
+                }
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = mArtworksFiltered;
+                return filterResults;
+            }
+
+                @Override
+                protected void publishResults(CharSequence constraint, FilterResults results) {
+                    mArtworksFiltered = (ArrayList<Art>) results.values;
+                    notifyDataSetChanged();
+                }
+            };
     }
 
     public interface RecyclerViewClickListener {
@@ -55,7 +86,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
 
     @Override
     public void onBindViewHolder(@NonNull GalleryViewHolder holder, int position) {
-        Art art = mArtworks.get(position);
+        Art art = mArtworksFiltered.get(position);
         Glide.with(holder.itemView)
                 .load("http://collectionsearch.nma.gov.au/nmacs-image-download/emu/" + art.getArtIdentifier() + ".640x640_640.jpg")
                 .fitCenter()
@@ -87,5 +118,24 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
         public void onClick(View v) {
             listener.onClick(v, (String) v.getTag());
         }
+    }
+
+    public void sort (final int sort) {
+
+        if(mArtworksFiltered.size() > 0) {
+            Collections.sort(mArtworksFiltered, new Comparator<Art>() {
+                @Override
+                public int compare(Art o1, Art o2) {
+
+                    if (sort == SORT_AZ) {
+                        return o1.getArtTitle().compareTo(o2.getArtTitle());
+                    } else if (sort == SORT_TYPE) {
+                        return o1.getArtType().compareTo(o2.getArtType());
+                    }
+                    return o2.getArtTitle().compareTo(o1.getArtTitle());
+                }
+            });
+        }
+        notifyDataSetChanged();
     }
 }

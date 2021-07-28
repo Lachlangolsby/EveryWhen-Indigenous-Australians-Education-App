@@ -9,8 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -22,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class ArtGallery extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private GalleryAdapter mAdapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
@@ -128,18 +131,44 @@ public class ArtGallery extends AppCompatActivity {
     });
 }
 
-    // Returning whether menu selected true or false
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (toggle.onOptionsItemSelected(item)){
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     private void launchDetailActivity(String message) {
         Intent intent = new Intent(this, Detail.class);
         intent.putExtra(Detail.INTENT_MESSAGE, message);
         startActivity(intent);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.gallery_menu, menu);
+        SearchView searchView = (SearchView) menu.findItem(R.id.searchList).getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                mAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                mAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.sortType:
+                mAdapter.sort(GalleryAdapter.SORT_TYPE);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
