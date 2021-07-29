@@ -4,7 +4,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Random;
 
 
@@ -34,7 +31,7 @@ public class RecommendationsAdapter extends RecyclerView.Adapter<Recommendations
     @NonNull
     @Override
     public RecommendationsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_recommendations, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recommendations_item, parent, false);
         return new RecommendationsViewHolder(v, mListener);
     }
 

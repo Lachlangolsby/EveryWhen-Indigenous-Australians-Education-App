@@ -15,84 +15,94 @@
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="32dp"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
-
-        <LinearLayout
+        <ImageView
+            android:id="@+id/background"
             android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:elevation="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/story_background"
+            tools:layout_editor_absoluteX="-5dp" />
+
+        <ImageView
+            android:id="@+id/dStoryImg"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginRight="70dp"
+            android:elevation="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_background" />
+
+        <ImageButton
+            android:id="@+id/dStoryPlayBtn"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="267dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:elevation="30dp"
+            android:background="@drawable/story_round_play_button"
+            android:clickable="true"
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintTop_toTopOf="@+id/background"
+            app:srcCompat="@drawable/story_play" />
 
-            <TextView
-                android:id="@+id/tvStoryValue"
-                android:layout_width="wrap_content"
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dStoryPlayBtn"
+            app:layout_constraintVertical_bias="1.0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginRight="32dp"
-                android:fontFamily="sans-serif-light"
-                android:textColor="@color/color_primary_dark" />
+                android:orientation="vertical">
 
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+                <TextView
+                    android:id="@+id/dStoryTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textColor="@color/black"
+                    android:textSize="26dp"
+                    android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="432dp"
-        android:layout_height="360dp"
-        android:layout_marginTop="-80dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvStoryTitleValue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@color/color_primary_dark" />
+                <TextView
+                    android:id="@+id/dStoryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="TextView"
+                    android:textColor="@color/color_primary_dark"
+                    android:textSize="18dp"
+                    android:gravity="center"/>
 
-    <ImageButton
-        android:id="@+id/storiesVideoBtn"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/youtube"
-        android:text="YouTube"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+        </ScrollView>
 
-    <TextView
-        android:id="@+id/tvStoryTitleValue"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:fontFamily="sans-serif-light"
-        android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/storiesVideoBtn" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_View"

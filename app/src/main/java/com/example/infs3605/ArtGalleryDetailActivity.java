@@ -52,7 +52,7 @@ public class ArtGalleryDetailActivity extends AppCompatActivity {
         for(final Art art : artGallery){
             if(art.getArtId().equals(message)){
                 mTitle.setText(art.getArtTitle());
-                mType.setText(art.getArtType());
+                mType.setText("Type   " + art.getArtType());
                 mRegion.setText(art.getArtRegion());
                 if(art.getArtDate().equals("Unknown")){
                     mCreator.setText(art.getArtCreator());

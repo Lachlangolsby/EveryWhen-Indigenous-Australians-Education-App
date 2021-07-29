@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         mRecyclerView = findViewById(R.id.art_gallery_rv);
-        mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         RecommendationsAdapter.RecyclerViewClickListener recommendationsListener = new RecommendationsAdapter.RecyclerViewClickListener() {

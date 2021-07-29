@@ -16,6 +16,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.StoriesViewHolder> implements Filterable {
+
     public static final int SORT_METHOD_ALPHABETICAL = 1;
     private ArrayList<Stories> mStories;
     private ArrayList<Stories> mStoriesFiltered;
@@ -70,7 +71,7 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.StoriesV
 
     @Override
     public void onBindViewHolder(@NonNull StoriesAdapter.StoriesViewHolder holder, int position) {
-        Stories story = mStories.get(position);
+        Stories story = mStoriesFiltered.get(position);
         holder.title.setText(story.getTitle());
         holder.img.setImageResource(story.getImg());
         holder.itemView.setTag(story.getId());
@@ -90,8 +91,8 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.StoriesV
             super(itemView);
             this.listener = listener;
             itemView.setOnClickListener(this);
-            title = itemView.findViewById(R.id.tvStoryTitle);
-            img = itemView.findViewById(R.id.storiesImg);
+            title = itemView.findViewById(R.id.mStoriesTitle);
+            img = itemView.findViewById(R.id.mStoriesImg);
         }
 
         @Override

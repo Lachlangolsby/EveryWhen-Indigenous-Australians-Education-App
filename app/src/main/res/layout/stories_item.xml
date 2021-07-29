@@ -9,7 +9,7 @@
     android:focusable="true">
 
     <ImageView
-        android:id="@+id/storiesImg"
+        android:id="@+id/mStoriesImg"
         android:layout_width="100dp"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
-        android:id="@+id/tvStoryTitle"
+        android:id="@+id/mStoriesTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -29,7 +29,7 @@
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/storiesImg"
+        app:layout_constraintStart_toEndOf="@+id/mStoriesImg"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,6 +31,7 @@ public class StoriesMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stories_main);
         setTitle("Stories");
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(StoriesMain.this);
         mRecyclerView = findViewById(R.id.stories_rv);
         mRecyclerView.setLayoutManager(layoutManager);
