@@ -12,9 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.StoriesViewHolder> implements Filterable {
-    public static final int SORT_METHOD_RATING = 1;
+    public static final int SORT_METHOD_ALPHABETICAL = 1;
     private ArrayList<Stories> mStories;
     private ArrayList<Stories> mStoriesFiltered;
     private RecyclerViewClickListener mListener;
@@ -29,14 +31,14 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.StoriesV
     public Filter getFilter() {
         return new Filter() {
             @Override
-            protected FilterResults performFiltering(CharSequence constraint) {
+            protected FilterResults performFiltering(CharSequence constraint)  {
                 String charString = constraint.toString();
-                if (charString.isEmpty()) {
+                if(charString.isEmpty()) {
                     mStoriesFiltered = mStories;
                 } else {
                     ArrayList<Stories> filteredList = new ArrayList<>();
-                    for (Stories story : mStories) {
-                        if (story.getTitle().toLowerCase().contains(charString.toLowerCase())) {
+                    for (Stories story: mStories) {
+                        if(story.getTitle().toLowerCase().contains(charString.toLowerCase())) {
                             filteredList.add(story);
                         }
                     }
@@ -99,18 +101,20 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.StoriesV
 
     }
 
-//    public void sort(final int sortMethod) {
-//        if (mStoriesFiltered.size() > 0) {
-//            Collections.sort(mStoriesFiltered, new Comparator<Stories>() {
-//                @Override
-//                public int compare(Stories o1, Stories o2) {
-//                    if(sortMethod == SORT_METHOD_RATING) {
-//                        return o2.getRating().compareTo(o1.getRating());
-//                    }
-//                    return o2.getRating().compareTo(o1.getRating());
-//                }
-//            });
-//        }
-//        notifyDataSetChanged();
-//    }
+    public void sort (final int sort) {
+
+        if(mStoriesFiltered.size() > 0) {
+            Collections.sort(mStoriesFiltered, new Comparator<Stories>() {
+                @Override
+                public int compare(Stories o1, Stories o2) {
+
+                    if (sort == SORT_METHOD_ALPHABETICAL) {
+                        return o1.getTitle().compareTo(o2.getTitle());
+                    }
+                    return o2.getTitle().compareTo(o1.getTitle());
+                }
+            });
+        }
+        notifyDataSetChanged();
+    }
 }

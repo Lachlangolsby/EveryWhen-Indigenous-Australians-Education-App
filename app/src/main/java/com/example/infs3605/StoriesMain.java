@@ -9,8 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -132,11 +135,17 @@ public class StoriesMain extends AppCompatActivity {
 
     // Returning whether menu selected true or false
     @Override
-    public boolean onOptionsItemSelected (@NonNull MenuItem item){
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (toggle.onOptionsItemSelected(item)) {
             return true;
         }
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.sortType:
+                mAdapter.sort(StoriesAdapter.SORT_METHOD_ALPHABETICAL);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void launchStoriesDetailActivity(String message) {
@@ -145,35 +154,26 @@ public class StoriesMain extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.menu_main, menu);
-//        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                mAdapter.getFilter().filter(query);
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                mAdapter.getFilter().filter(newText);
-//                return false;
-//            }
-//        });
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.sort_rating:
-//                mAdapter.sort(MovieAdapter.SORT_METHOD_RATING);
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.search_menu, menu);
+        SearchView searchView = (SearchView) menu.findItem(R.id.searchList).getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                mAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                mAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
+        return true;
+    }
 }
