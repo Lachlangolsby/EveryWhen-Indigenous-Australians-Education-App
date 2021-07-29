@@ -30,6 +30,9 @@
                 <item android:id="@+id/mModule3"
                     android:title="Events/Promotions"
                     android:icon="@drawable/calendar"/>
+                <item android:id="@+id/mModule4"
+                    android:title="Stories"
+                    android:icon="@drawable/story"/>
                 \\
             </menu>
         </item>

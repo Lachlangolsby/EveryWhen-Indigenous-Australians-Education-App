@@ -139,6 +139,12 @@ public class OffersDetailActivity extends AppCompatActivity {
                         Intent activityChangeIntentFG = new Intent(OffersDetailActivity.this, EventsOffers.class);
                         OffersDetailActivity.this.startActivity(activityChangeIntentFG);
                         break;
+                    case R.id.mModule4:
+                        Toast.makeText(OffersDetailActivity.this, "EventsDiscounts", Toast.LENGTH_SHORT);
+                        drawerLayout.closeDrawers();
+                        Intent activityChangeIntentS = new Intent(OffersDetailActivity.this, StoriesMain.class);
+                        OffersDetailActivity.this.startActivity(activityChangeIntentS);
+                        break;
                     case R.id.mProfile:
                         Toast.makeText(OffersDetailActivity.this, "Profile", Toast.LENGTH_SHORT);
                         drawerLayout.closeDrawers();

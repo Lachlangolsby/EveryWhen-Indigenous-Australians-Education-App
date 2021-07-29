@@ -122,6 +122,12 @@ public class ArtGalleryDetailActivity extends AppCompatActivity {
                     Intent activityChangeIntentFG = new Intent(ArtGalleryDetailActivity.this, EventsOffers.class);
                     ArtGalleryDetailActivity.this.startActivity(activityChangeIntentFG);
                     break;
+                case R.id.mModule4:
+                    Toast.makeText(ArtGalleryDetailActivity.this, "EventsDiscounts", Toast.LENGTH_SHORT);
+                    drawerLayout.closeDrawers();
+                    Intent activityChangeIntentS = new Intent(ArtGalleryDetailActivity.this, StoriesMain.class);
+                    ArtGalleryDetailActivity.this.startActivity(activityChangeIntentS);
+                    break;
                 case R.id.mProfile:
                     Toast.makeText(ArtGalleryDetailActivity.this, "Profile", Toast.LENGTH_SHORT);
                     drawerLayout.closeDrawers();

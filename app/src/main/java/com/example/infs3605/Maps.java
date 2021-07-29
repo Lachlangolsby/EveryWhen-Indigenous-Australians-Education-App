@@ -123,6 +123,12 @@ public class Maps extends AppCompatActivity {
                         Intent activityChangeIntentFG = new Intent(Maps.this, EventsOffers.class);
                         Maps.this.startActivity(activityChangeIntentFG);
                         break;
+                    case R.id.mModule4:
+                        Toast.makeText(Maps.this, "EventsDiscounts", Toast.LENGTH_SHORT);
+                        drawerLayout.closeDrawers();
+                        Intent activityChangeIntentS = new Intent(Maps.this, StoriesMain.class);
+                        Maps.this.startActivity(activityChangeIntentS);
+                        break;
                     case R.id.mProfile:
                         Toast.makeText(Maps.this, "Profile", Toast.LENGTH_SHORT);
                         drawerLayout.closeDrawers();

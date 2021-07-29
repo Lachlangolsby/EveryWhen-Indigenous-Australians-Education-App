@@ -102,6 +102,12 @@ public class ArtGallery extends AppCompatActivity {
                     Intent activityChangeIntentFG = new Intent(ArtGallery.this, EventsOffers.class);
                     ArtGallery.this.startActivity(activityChangeIntentFG);
                     break;
+                case R.id.mModule4:
+                    Toast.makeText(ArtGallery.this, "EventsDiscounts", Toast.LENGTH_SHORT);
+                    drawerLayout.closeDrawers();
+                    Intent activityChangeIntentS = new Intent(ArtGallery.this, StoriesMain.class);
+                   ArtGallery.this.startActivity(activityChangeIntentS);
+                    break;
                 case R.id.mProfile:
                     Toast.makeText(ArtGallery.this, "Profile", Toast.LENGTH_SHORT);
                     drawerLayout.closeDrawers();
@@ -128,6 +134,20 @@ public class ArtGallery extends AppCompatActivity {
         }
     });
 }
+    // Returning whether menu selected true or false
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (toggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        switch (item.getItemId()) {
+            case R.id.sortType:
+                mAdapter.sort(ArtGalleryAdapter.SORT_TYPE);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     private void launchDetailActivity(String message) {
         Intent intent = new Intent(this, ArtGalleryDetailActivity.class);
@@ -158,15 +178,5 @@ public class ArtGallery extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        switch(item.getItemId()) {
-            case R.id.sortType:
-                mAdapter.sort(ArtGalleryAdapter.SORT_TYPE);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
-}
+
