@@ -47,6 +47,7 @@
             android:id="@+id/eventImageIv"
             android:layout_width="371dp"
             android:layout_height="173dp"
+            android:scaleType="centerCrop"
             android:layout_marginTop="120dp"
             android:layout_marginBottom="55dp"
             app:layout_constraintBottom_toTopOf="@+id/actualDateTv"
