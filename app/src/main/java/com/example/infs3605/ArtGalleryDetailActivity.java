@@ -51,6 +51,7 @@ public class ArtGalleryDetailActivity extends AppCompatActivity {
         ArrayList<Art> artGallery = Art.getArtworks();
         for(final Art art : artGallery){
             if(art.getArtId().equals(message)){
+                setTitle(art.getArtTitle());
                 mTitle.setText(art.getArtTitle());
                 mType.setText("Type   " + art.getArtType());
                 mRegion.setText(art.getArtRegion());

@@ -48,6 +48,7 @@ public class StoriesDetailActivity extends AppCompatActivity {
         ArrayList<Stories> stories = Stories.getStories();
         for(final Stories story : stories) {
             if (story.getId().equals(message)) {
+                setTitle(story.getTitle());
                 mTitle.setText(story.getTitle());
                 mStory.setText(story.getStory());
                 mImage.setImageResource(story.getImg());

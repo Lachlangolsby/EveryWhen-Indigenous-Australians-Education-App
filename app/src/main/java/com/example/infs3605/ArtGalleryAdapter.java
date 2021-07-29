@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Random;
 
 public class ArtGalleryAdapter extends RecyclerView.Adapter<ArtGalleryAdapter.GalleryViewHolder> implements Filterable {
 
@@ -76,6 +77,8 @@ public class ArtGalleryAdapter extends RecyclerView.Adapter<ArtGalleryAdapter.Ga
 
     @Override
     public void onBindViewHolder(@NonNull GalleryViewHolder holder, int position) {
+        Random generator = new Random();
+        position = generator.nextInt(150);
         Art art = mArtworksFiltered.get(position);
         Glide.with(holder.itemView)
                 .load("http://collectionsearch.nma.gov.au/nmacs-image-download/emu/" + art.getArtIdentifier() + ".640x640_640.jpg")

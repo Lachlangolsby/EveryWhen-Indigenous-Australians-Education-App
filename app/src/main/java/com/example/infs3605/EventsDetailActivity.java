@@ -35,7 +35,6 @@ public class EventsDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_detail);
-        setTitle("Events");
 
         eventDateByMonth = findViewById(R.id.monthDateTv);
         eventTitle = findViewById(R.id.eventTitleTv);
@@ -50,6 +49,7 @@ public class EventsDetailActivity extends AppCompatActivity {
 
         Event event = Event.getEvent(eventName);
         if(event !=null) {
+            setTitle(event.getEventName());
             eventDateByMonth.setText(event.getEventMonthDate());
             eventTitle.setText(event.getEventName());
             detailsText.setText("Details");
