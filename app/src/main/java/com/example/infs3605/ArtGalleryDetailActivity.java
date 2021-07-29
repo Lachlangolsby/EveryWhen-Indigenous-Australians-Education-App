@@ -31,7 +31,6 @@ public class ArtGalleryDetailActivity extends AppCompatActivity {
     private TextView mCreator;
     private TextView mDescription;
     private ImageView mImage;
-    String message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +46,7 @@ public class ArtGalleryDetailActivity extends AppCompatActivity {
         mImage = findViewById(R.id.artImg);
 
         Intent intent = getIntent();
-        message = intent.getStringExtra(INTENT_MESSAGE);
+        String message = intent.getStringExtra(INTENT_MESSAGE);
 
         ArrayList<Art> artGallery = Art.getArtworks();
         for(final Art art : artGallery){
@@ -67,10 +66,6 @@ public class ArtGalleryDetailActivity extends AppCompatActivity {
                         .into(mImage);
             }
         }
-
-
-
-
 
     // imports nav view id written at bottom of pages XML file
     navigationView = findViewById(R.id.nav_View);
