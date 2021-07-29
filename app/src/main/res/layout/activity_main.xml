@@ -203,13 +203,13 @@
                         android:id="@+id/imageView8"
                         android:layout_width="125dp"
                         android:layout_height="50dp"
-                        app:srcCompat="@drawable/star" />
+                        app:srcCompat="@drawable/script" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
-                        android:text="Favourites"
+                        android:text="Stories"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="10sp"

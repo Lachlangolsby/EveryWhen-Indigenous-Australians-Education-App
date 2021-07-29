@@ -1,33 +1,23 @@
 package com.example.infs3605;
 
-import android.app.Application;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> implements Filterable {
+public class ArtGalleryAdapter extends RecyclerView.Adapter<ArtGalleryAdapter.GalleryViewHolder> implements Filterable {
 
     private ArrayList<Art> mArtworks;
     private ArrayList<Art> mArtworksFiltered;
@@ -37,7 +27,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
     public static final int SORT_TYPE = 2;
 
 
-    public GalleryAdapter(ArrayList<Art> artworks, RecyclerViewClickListener listener){
+    public ArtGalleryAdapter(ArrayList<Art> artworks, RecyclerViewClickListener listener){
         mArtworks = artworks;
         mArtworksFiltered = artworks;
         mListener = listener;

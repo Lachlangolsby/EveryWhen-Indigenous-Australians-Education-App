@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(MainActivity.this, Detail.class);
+                Intent intent = new Intent(MainActivity.this, StoriesMain.class);
                 intent.putExtra("info", "This is activity from card item index  ");
                 startActivity(intent);
 
@@ -193,8 +193,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
     private void launchDetailActivity(String message) {
-        Intent intent = new Intent(this, Detail.class);
-        intent.putExtra(Detail.INTENT_MESSAGE, message);
+        Intent intent = new Intent(this, ArtGalleryDetailActivity.class);
+        intent.putExtra(ArtGalleryDetailActivity.INTENT_MESSAGE, message);
         startActivity(intent);
     }
 

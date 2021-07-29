@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
-public class Detail extends AppCompatActivity {
+public class ArtGalleryDetailActivity extends AppCompatActivity {
 
     public static final String INTENT_MESSAGE = "au.edu.unsw.infs3605.assignment.intent_message";
 
@@ -104,34 +104,34 @@ public class Detail extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.mHome:
-                    Toast.makeText(Detail.this, "Profile page", Toast.LENGTH_SHORT);
-                    Intent activityChangeIntent = new Intent(Detail.this, MainActivity.class);
-                    Detail.this.startActivity(activityChangeIntent);
+                    Toast.makeText(ArtGalleryDetailActivity.this, "Profile page", Toast.LENGTH_SHORT);
+                    Intent activityChangeIntent = new Intent(ArtGalleryDetailActivity.this, MainActivity.class);
+                    ArtGalleryDetailActivity.this.startActivity(activityChangeIntent);
                     drawerLayout.closeDrawers();
                     break;
                 case R.id.mModule1:
-                    Toast.makeText(Detail.this, "ArtGallery", Toast.LENGTH_SHORT);
-                    Intent activityChangeIntentCalculator = new Intent(Detail.this, ArtGallery.class);
-                    Detail.this.startActivity(activityChangeIntentCalculator);
+                    Toast.makeText(ArtGalleryDetailActivity.this, "ArtGallery", Toast.LENGTH_SHORT);
+                    Intent activityChangeIntentCalculator = new Intent(ArtGalleryDetailActivity.this, ArtGallery.class);
+                    ArtGalleryDetailActivity.this.startActivity(activityChangeIntentCalculator);
                     drawerLayout.closeDrawers();
                     break;
                 case R.id.mModule2:
-                    Toast.makeText(Detail.this, "Maps", Toast.LENGTH_SHORT);
-                    Intent activityChangeIntentSmartInvesting = new Intent(Detail.this, GoogleMaps.class);
-                    Detail.this.startActivity(activityChangeIntentSmartInvesting);
+                    Toast.makeText(ArtGalleryDetailActivity.this, "Maps", Toast.LENGTH_SHORT);
+                    Intent activityChangeIntentSmartInvesting = new Intent(ArtGalleryDetailActivity.this, GoogleMaps.class);
+                    ArtGalleryDetailActivity.this.startActivity(activityChangeIntentSmartInvesting);
                     drawerLayout.closeDrawers();
                     break;
                 case R.id.mModule3:
-                    Toast.makeText(Detail.this, "EventsDiscounts", Toast.LENGTH_SHORT);
+                    Toast.makeText(ArtGalleryDetailActivity.this, "EventsDiscounts", Toast.LENGTH_SHORT);
                     drawerLayout.closeDrawers();
-                    Intent activityChangeIntentFG = new Intent(Detail.this, EventsOffers.class);
-                    Detail.this.startActivity(activityChangeIntentFG);
+                    Intent activityChangeIntentFG = new Intent(ArtGalleryDetailActivity.this, EventsOffers.class);
+                    ArtGalleryDetailActivity.this.startActivity(activityChangeIntentFG);
                     break;
                 case R.id.mProfile:
-                    Toast.makeText(Detail.this, "Profile", Toast.LENGTH_SHORT);
+                    Toast.makeText(ArtGalleryDetailActivity.this, "Profile", Toast.LENGTH_SHORT);
                     drawerLayout.closeDrawers();
-                    Intent activityChangeIntentP = new Intent(Detail.this, Profile.class);
-                    Detail.this.startActivity(activityChangeIntentP);
+                    Intent activityChangeIntentP = new Intent(ArtGalleryDetailActivity.this, Profile.class);
+                    ArtGalleryDetailActivity.this.startActivity(activityChangeIntentP);
                     break;
                 case R.id.mShare:
                     String shareMessage = "Join, it's fun and eductaional.";
@@ -143,8 +143,8 @@ public class Detail extends AppCompatActivity {
                     break;
                 case R.id.mLogout:
                     FirebaseAuth.getInstance().signOut();
-                    Toast.makeText(Detail.this, "You are Logged Out", Toast.LENGTH_SHORT).show();
-                    Intent logout = new Intent(Detail.this, Welcome.class);
+                    Toast.makeText(ArtGalleryDetailActivity.this, "You are Logged Out", Toast.LENGTH_SHORT).show();
+                    Intent logout = new Intent(ArtGalleryDetailActivity.this, Welcome.class);
                     startActivity(logout);
                     drawerLayout.closeDrawers();
                     break;

@@ -176,7 +176,7 @@ public class OffersDetailActivity extends AppCompatActivity {
     }
 
     private void launchSubPage (String message) {
-        Intent intent = new Intent(this, Detail.class);
+        Intent intent = new Intent(this, ArtGalleryDetailActivity.class);
         startActivity(intent);
     }
 

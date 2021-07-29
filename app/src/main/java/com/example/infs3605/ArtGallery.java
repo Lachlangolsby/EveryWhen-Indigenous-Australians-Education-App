@@ -18,14 +18,12 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 
 public class ArtGallery extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
-    private GalleryAdapter mAdapter;
+    private ArtGalleryAdapter mAdapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
@@ -37,14 +35,14 @@ public class ArtGallery extends AppCompatActivity {
         setTitle("Art Gallery");
 
         mRecyclerView = findViewById(R.id.art_gallery_rv);
-        GalleryAdapter.RecyclerViewClickListener galleryListener = new GalleryAdapter.RecyclerViewClickListener() {
+        ArtGalleryAdapter.RecyclerViewClickListener galleryListener = new ArtGalleryAdapter.RecyclerViewClickListener() {
             @Override
             public void onClick(View view, String id) {
                 launchDetailActivity(id);
             }
         };
 
-        mAdapter = new GalleryAdapter(Art.getArtworks(), galleryListener);
+        mAdapter = new ArtGalleryAdapter(Art.getArtworks(), galleryListener);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL,false);
         mRecyclerView.setLayoutManager(gridLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
@@ -132,8 +130,8 @@ public class ArtGallery extends AppCompatActivity {
 }
 
     private void launchDetailActivity(String message) {
-        Intent intent = new Intent(this, Detail.class);
-        intent.putExtra(Detail.INTENT_MESSAGE, message);
+        Intent intent = new Intent(this, ArtGalleryDetailActivity.class);
+        intent.putExtra(ArtGalleryDetailActivity.INTENT_MESSAGE, message);
         startActivity(intent);
     }
 
@@ -165,7 +163,7 @@ public class ArtGallery extends AppCompatActivity {
 
         switch(item.getItemId()) {
             case R.id.sortType:
-                mAdapter.sort(GalleryAdapter.SORT_TYPE);
+                mAdapter.sort(ArtGalleryAdapter.SORT_TYPE);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
