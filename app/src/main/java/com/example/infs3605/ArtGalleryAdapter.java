@@ -23,10 +23,8 @@ public class ArtGalleryAdapter extends RecyclerView.Adapter<ArtGalleryAdapter.Ga
     private ArrayList<Art> mArtworks;
     private ArrayList<Art> mArtworksFiltered;
     private RecyclerViewClickListener mListener;
-
     public static final int SORT_AZ = 1;
     public static final int SORT_TYPE = 2;
-
 
     public ArtGalleryAdapter(ArrayList<Art> artworks, RecyclerViewClickListener listener){
         mArtworks = artworks;
@@ -77,8 +75,6 @@ public class ArtGalleryAdapter extends RecyclerView.Adapter<ArtGalleryAdapter.Ga
 
     @Override
     public void onBindViewHolder(@NonNull GalleryViewHolder holder, int position) {
-        Random generator = new Random();
-        position = generator.nextInt(150);
         Art art = mArtworksFiltered.get(position);
         Glide.with(holder.itemView)
                 .load("http://collectionsearch.nma.gov.au/nmacs-image-download/emu/" + art.getArtIdentifier() + ".640x640_640.jpg")

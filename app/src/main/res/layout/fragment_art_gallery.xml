@@ -5,7 +5,7 @@
     android:id="@+id/ArtGallery"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgrounddashboard"
+    android:layout_gravity="center|start"
     tools:context=".ArtGallery">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,11 +20,10 @@
         android:id="@+id/art_gallery_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp">
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 

@@ -9,6 +9,9 @@
 
         <menu>
             <item
+                android:id="@+id/sortAZ"
+                android:title="A-Z" />
+            <item
                 android:id="@+id/sortType"
                 android:title="Art Type" />
         </menu>

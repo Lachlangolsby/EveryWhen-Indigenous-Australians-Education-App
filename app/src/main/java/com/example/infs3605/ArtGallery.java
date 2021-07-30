@@ -141,6 +141,9 @@ public class ArtGallery extends AppCompatActivity {
             return true;
         }
         switch (item.getItemId()) {
+            case R.id.sortAZ:
+                mAdapter.sort(ArtGalleryAdapter.SORT_AZ);
+                return true;
             case R.id.sortType:
                 mAdapter.sort(ArtGalleryAdapter.SORT_TYPE);
                 return true;
