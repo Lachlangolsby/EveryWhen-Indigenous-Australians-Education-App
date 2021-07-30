@@ -36,6 +36,8 @@ public class ConfirmNewAvatar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_new_avatar);
 
+        setTitle("");
+
         selectedAvatar = findViewById(R.id.selectedAvatar);
         confirmChange = findViewById(R.id.confirmAvatarChange);
         cancelChange = findViewById(R.id.cancelAvatarChange);

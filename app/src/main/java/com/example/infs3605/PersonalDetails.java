@@ -40,7 +40,7 @@ public class PersonalDetails extends AppCompatActivity {
         setContentView(R.layout.activity_personal_details);
 
         //Set Page Title
-        setTitle("Personal Details");
+        setTitle("");
 
         currentDetails = findViewById(R.id.currentDetails);
         newFName = findViewById(R.id.newFName);

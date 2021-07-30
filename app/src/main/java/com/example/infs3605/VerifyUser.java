@@ -32,6 +32,8 @@ public class VerifyUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_user);
 
+        setTitle("");
+
         mAuth = FirebaseAuth.getInstance();
         verifyEmail = findViewById(R.id.verifyEmail);
         verifyPassword = findViewById(R.id.verifyPassword);

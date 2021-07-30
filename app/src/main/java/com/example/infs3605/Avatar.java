@@ -45,7 +45,7 @@ public class Avatar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avatar);
 
-        setTitle("Avatar");
+        setTitle("");
 
         currentAvatar = findViewById(R.id.currentAvatar);
         currentAvatarMessage = findViewById(R.id.currentAvatarMessage);

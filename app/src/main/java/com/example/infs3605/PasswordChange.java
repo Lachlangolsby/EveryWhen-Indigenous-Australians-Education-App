@@ -36,7 +36,7 @@ public class PasswordChange extends AppCompatActivity {
         setContentView(R.layout.activity_password_change);
 
         //Set Page Title
-        setTitle("Change Password");
+        setTitle("");
 
         newPassword = findViewById(R.id.newPassword);
         confirmNewPassword = findViewById(R.id.newPasswordConfirm);
