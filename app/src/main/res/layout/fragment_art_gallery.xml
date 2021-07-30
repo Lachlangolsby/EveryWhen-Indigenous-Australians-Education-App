@@ -20,10 +20,7 @@
         android:id="@+id/art_gallery_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp">
+        android:background="@drawable/background_layout">
 
     </androidx.recyclerview.widget.RecyclerView>
 

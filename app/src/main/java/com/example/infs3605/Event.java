@@ -90,7 +90,7 @@ public class Event {
     public static ArrayList<Event> getEvents() {
         ArrayList<Event> events = new ArrayList<>();
         events.add(new Event("National Indigenous Music Awards 2021", "Sat, 6:30 – 10:00 pm ACST",
-                "George Brown Darwin Botanic Gardens, Gilruth Ave & Gardens Rd", " The Gardens, NT", "7 AUG",
+                "George Brown Darwin Botanic Gardens, Gilruth Ave & Gardens Rd", "The Gardens, NT", "7 AUG",
                 R.drawable.nimas_baker_boy, "A celebration of First Nations music and musicians from across Australia. Recognising" +
                 " achievement and excellence in the Indigenous music sector the awards will this year be broadcast through NITV", "https://goo.gl/maps/nAhx61NjtBgbc8pu5"));
         events.add(new Event("Piinpi: Contemporary Indigenous Fashion", "20 Feb 2021 to 8 Aug 2021",

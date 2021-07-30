@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgrounddashboard"
+    android:background="@drawable/background_layout"
     tools:context=".OffersFrag">
 
 
@@ -12,5 +12,5 @@
         android:id="@+id/Offers_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="5dp"/>
 </FrameLayout>

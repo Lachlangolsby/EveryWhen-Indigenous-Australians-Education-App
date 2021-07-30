@@ -16,7 +16,6 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Random;
 
 public class ArtGalleryAdapter extends RecyclerView.Adapter<ArtGalleryAdapter.GalleryViewHolder> implements Filterable {
 
@@ -69,7 +68,7 @@ public class ArtGalleryAdapter extends RecyclerView.Adapter<ArtGalleryAdapter.Ga
     @NonNull
     @Override
     public GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.art_gallery_item, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_art_gallery, parent, false);
         return new GalleryViewHolder(v, mListener);
     }
 

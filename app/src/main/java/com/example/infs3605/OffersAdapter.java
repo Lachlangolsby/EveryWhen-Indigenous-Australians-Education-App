@@ -21,8 +21,6 @@ import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OffersViewHolder> implements Filterable {
     // 1. Declaring public variables to be accessed throughout application and private for adapter class
@@ -85,7 +83,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OffersView
     @NonNull
     @Override
     public OffersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewtype) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_offers_tile, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_offers, parent, false);
         return new OffersViewHolder(v, mListener);
     }
 

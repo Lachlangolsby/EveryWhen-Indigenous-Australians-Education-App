@@ -5,7 +5,6 @@
     android:id="@+id/OffersDetails"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context=".OffersDetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,156 +15,83 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/descriptionTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="20dp"
-            android:text="Description"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivBrackets" />
-
-        <TextView
-            android:id="@+id/tvSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="12dp"
-            android:background="#FFFFFF"
-            android:text="Find out more Information"
-            android:textColor="#2196F3"
-            app:layout_constraintStart_toEndOf="@+id/search"
-            app:layout_constraintTop_toBottomOf="@+id/ivEmail" />
-
         <ImageView
             android:id="@+id/ivBrackets"
-            android:layout_width="385dp"
-            android:layout_height="327dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="8dp"
+            android:layout_width="360dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginRight="13dp"
             android:contentDescription="@string/todo"
-            app:flow_horizontalAlign="center"
-            app:flow_verticalAlign="center"
-            app:layout_constraintBottom_toTopOf="@+id/descriptionTitle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.923"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/qrbrackets" />
 
         <ImageView
-            android:id="@+id/search"
-            android:layout_width="27dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginLeft="36dp"
-            android:layout_marginTop="12dp"
-            android:contentDescription="@string/todo"
+            android:id="@+id/ivImage"
+            android:layout_width="240dp"
+            android:layout_height="230dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBrackets"
+            app:layout_constraintEnd_toEndOf="@+id/ivBrackets"
+            app:layout_constraintHorizontal_bias="0.642"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivEmail"
-            app:srcCompat="@drawable/search" />
-
-        <ImageView
-            android:id="@+id/ivEmail"
-            android:layout_width="27dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginLeft="36dp"
-            android:layout_marginTop="12dp"
-            android:contentDescription="@string/todo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivPhone"
-            app:srcCompat="@drawable/email" />
+            app:layout_constraintTop_toTopOf="@+id/ivBrackets"
+            app:layout_constraintVertical_bias="0.494"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/tvDescription"
-            android:layout_width="357dp"
+            android:id="@+id/descriptionTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="5dp"
+            android:text="Description"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivBrackets" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
             android:background="#FFFFFF"
             android:text="@string/textview"
-            android:textColor="#000000"
+            android:textColor="@color/black"
+            android:textSize="14dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/descriptionTitle"
             app:layout_constraintTop_toBottomOf="@+id/descriptionTitle" />
 
         <TextView
-            android:id="@+id/tvPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="8dp"
-            android:background="#FFFFFF"
-            android:text="@string/textview"
-            android:textColor="#000000"
-            app:layout_constraintStart_toEndOf="@+id/ivPhone"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-        <ImageView
-            android:id="@+id/ivPhone"
-            android:layout_width="27dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginLeft="36dp"
-            android:layout_marginTop="6dp"
-            android:contentDescription="@string/todo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
-            app:srcCompat="@drawable/telephone" />
-
-        <TextView
             android:id="@+id/tvLocationTitle2"
-            android:layout_width="57dp"
+            android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="15dp"
             android:text="Location"
             android:textColor="#000000"
+            android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
-        <TextView
-            android:id="@+id/tvEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="12dp"
-            android:background="#FFFFFF"
-            android:text="@string/textview"
-            android:textColor="#000000"
-            app:layout_constraintStart_toEndOf="@+id/ivEmail"
-            app:layout_constraintTop_toBottomOf="@+id/tvPhone" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="10dp"
-            android:shadowColor="#070707"
-            android:text="Contact Information"
-            android:textColor="#121010"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
-
         <ImageView
             android:id="@+id/ivLocation"
-            android:layout_width="27dp"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
             android:layout_marginTop="6dp"
@@ -178,27 +104,104 @@
             android:id="@+id/tvAddress"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             android:background="#FFFFFF"
             android:textColor="#2196F3"
             app:layout_constraintStart_toEndOf="@+id/ivLocation"
             app:layout_constraintTop_toBottomOf="@+id/tvLocationTitle2" />
 
-        <ImageView
-            android:id="@+id/ivImage"
-            android:layout_width="283dp"
-            android:layout_height="240dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/ivBrackets"
-            app:layout_constraintEnd_toEndOf="@+id/ivBrackets"
-            app:layout_constraintHorizontal_bias="0.642"
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="15dp"
+            android:shadowColor="#070707"
+            android:text="Contact Information"
+            android:textColor="#121010"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ivBrackets"
-            app:layout_constraintVertical_bias="0.494"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toBottomOf="@+id/ivLocation" />
+
+        <ImageView
+            android:id="@+id/ivPhone"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="6dp"
+            android:contentDescription="@string/todo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:srcCompat="@drawable/telephone" />
+
+        <TextView
+            android:id="@+id/tvPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:background="#FFFFFF"
+            android:text="@string/textview"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivPhone"
+            app:layout_constraintTop_toTopOf="@+id/ivPhone" />
+
+        <ImageView
+            android:id="@+id/ivEmail"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/todo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivPhone"
+            app:srcCompat="@drawable/email" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:background="#FFFFFF"
+            android:text="@string/textview"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvPhone"
+            app:layout_constraintTop_toTopOf="@+id/ivEmail" />
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/todo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivEmail"
+            app:srcCompat="@drawable/search" />
+
+        <TextView
+            android:id="@+id/tvSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="#FFFFFF"
+            android:text="Find out more Information"
+            android:textColor="#2196F3"
+            app:layout_constraintStart_toStartOf="@+id/tvEmail"
+            app:layout_constraintTop_toTopOf="@+id/search" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

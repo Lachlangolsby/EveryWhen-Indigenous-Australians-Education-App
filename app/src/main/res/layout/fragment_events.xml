@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgrounddashboard"
+    android:background="@drawable/background_layout"
     tools:context=".EventsFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -11,6 +11,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvEventsList"
         android:layout_width="match_parent"
-        android:layout_height="651dp" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"/>
 
 </FrameLayout>

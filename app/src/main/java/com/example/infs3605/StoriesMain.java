@@ -29,7 +29,7 @@ public class StoriesMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stories_main);
+        setContentView(R.layout.fragment_stories);
         setTitle("Stories");
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(StoriesMain.this);
