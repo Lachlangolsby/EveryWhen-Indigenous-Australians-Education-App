@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,6 +20,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class EventsOffers extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -27,6 +30,8 @@ public class EventsOffers extends AppCompatActivity {
     ViewPager2 pager2;
     EventsOffersFragmentAdapter adapter;
     OffersAdapter mAdapter;
+    FirebaseUser user;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +84,6 @@ public class EventsOffers extends AppCompatActivity {
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //THIS IS THE CODE TO DISPLAY THE EMAIL OF THE CURRENT USER IN THE NAV MENU
-        //CURRENTLY THIS CRASHES THE APP IF NO USER LOGGED IN (I.E. SKIP TO MAIN)
-        /*
         //Get current user
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
@@ -92,7 +94,6 @@ public class EventsOffers extends AppCompatActivity {
         if (userEmail != null) {
             userEmail.setText(user.getEmail());;
         }
-        */
 
         //Navigation menu logic
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -107,41 +108,41 @@ public class EventsOffers extends AppCompatActivity {
                         break;
                     case R.id.mModule1:
                         Toast.makeText(EventsOffers.this, "ArtGallery", Toast.LENGTH_SHORT);
-                        Intent activityChangeIntentCalculator = new Intent(EventsOffers.this, ArtGallery.class);
-                        EventsOffers.this.startActivity(activityChangeIntentCalculator);
+                        Intent activityArtGallery = new Intent(EventsOffers.this, ArtGallery.class);
+                        EventsOffers.this.startActivity(activityArtGallery);
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.mModule2:
                         Toast.makeText(EventsOffers.this, "Maps", Toast.LENGTH_SHORT);
-                        Intent activityChangeIntentSmartInvesting = new Intent(EventsOffers.this, GoogleMaps.class);
-                        EventsOffers.this.startActivity(activityChangeIntentSmartInvesting);
+                        Intent activityMaps = new Intent(EventsOffers.this, GoogleMaps.class);
+                        EventsOffers.this.startActivity(activityMaps);
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.mModule3:
                         Toast.makeText(EventsOffers.this, "EventsDiscounts", Toast.LENGTH_SHORT);
                         drawerLayout.closeDrawers();
-                        Intent activityChangeIntentFG = new Intent(EventsOffers.this, EventsOffers.class);
-                        EventsOffers.this.startActivity(activityChangeIntentFG);
+                        Intent activityOffersEvents = new Intent(EventsOffers.this, EventsOffers.class);
+                        EventsOffers.this.startActivity(activityOffersEvents);
                         break;
                     case R.id.mModule4:
-                        Toast.makeText(EventsOffers.this, "EventsDiscounts", Toast.LENGTH_SHORT);
+                        Toast.makeText(EventsOffers.this, "Stories", Toast.LENGTH_SHORT);
                         drawerLayout.closeDrawers();
-                        Intent activityChangeIntentS = new Intent(EventsOffers.this, StoriesMain.class);
-                        EventsOffers.this.startActivity(activityChangeIntentS);
+                        Intent activityStories = new Intent(EventsOffers.this, StoriesMain.class);
+                        EventsOffers.this.startActivity(activityStories);
                         break;
                     case R.id.mProfile:
                         Toast.makeText(EventsOffers.this, "Profile", Toast.LENGTH_SHORT);
                         drawerLayout.closeDrawers();
-                        Intent activityChangeIntentP = new Intent(EventsOffers.this, Profile.class);
-                        EventsOffers.this.startActivity(activityChangeIntentP);
+                        Intent activityProfile = new Intent(EventsOffers.this, Profile.class);
+                        EventsOffers.this.startActivity(activityProfile);
                         break;
                     case R.id.mShare:
                         String shareMessage = "Join, it's fun and eductaional.";
                         Intent mSharingIntent = new Intent(Intent.ACTION_SEND);
                         mSharingIntent.setType("Text/Plain");
-                        mSharingIntent.putExtra(Intent.EXTRA_SUBJECT, "MYFinance HighScore");
+                        mSharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Everywhen");
                         mSharingIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
-                        startActivity(Intent.createChooser(mSharingIntent, "Share Score Via"));
+                        startActivity(Intent.createChooser(mSharingIntent, "Everywhen"));
                         break;
                     case R.id.mLogout:
                         FirebaseAuth.getInstance().signOut();

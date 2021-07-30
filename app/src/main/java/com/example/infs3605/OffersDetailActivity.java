@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -36,6 +37,8 @@ public class OffersDetailActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
+    FirebaseUser user;
+    FirebaseAuth fAuth;
 
 
     @Override
@@ -109,6 +112,17 @@ public class OffersDetailActivity extends AppCompatActivity {
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+        //Get current user
+        fAuth = FirebaseAuth.getInstance();
+        user = fAuth.getCurrentUser();
+
+        //Displays users email in the drawer
+        View headerView = navigationView.getHeaderView(0);
+        TextView userEmail = headerView.findViewById(R.id.email);
+        if (userEmail != null) {
+            userEmail.setText(user.getEmail());;
+        }
 
         //Navigation menu logic
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {

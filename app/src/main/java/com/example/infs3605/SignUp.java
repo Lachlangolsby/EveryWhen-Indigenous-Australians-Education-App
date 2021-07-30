@@ -80,6 +80,9 @@ public class SignUp extends AppCompatActivity {
         String password = enterPassword.getText().toString().trim();
         String password2 = confirmPassword.getText().toString().trim();
 
+        //Set Default Image
+        int avatar = R.drawable.applogo;
+
         //Check that First Name was Provided
         if (firstName.isEmpty()){
             enterFirstName.setError("First Name is Required");
@@ -142,7 +145,7 @@ public class SignUp extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            User user = new User(firstName, lastName, email);
+                            User user = new User(firstName, lastName, email, avatar);
 
                             FirebaseUser userRegistration = FirebaseAuth.getInstance().getCurrentUser();
                             FirebaseDatabase.getInstance().getReference("Users")

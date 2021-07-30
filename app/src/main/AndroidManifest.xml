@@ -18,7 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
-        <activity android:name=".StoriesDetailActivity"></activity>
+        <activity android:name=".ConfirmNewAvatar"></activity>
+        <activity android:name=".PasswordChange" />
+        <activity android:name=".VerifyUser" />
+        <activity android:name=".PersonalDetails" />
+        <activity android:name=".Avatar" />
+        <activity android:name=".StoriesDetailActivity" />
         <activity android:name=".StoriesMain" />
         <activity android:name=".EventsDetailActivity" />
         <!--
@@ -53,7 +58,6 @@
         <activity android:name=".SignUp" />
         <activity android:name=".ResetPassword" />
         <activity android:name=".Login" />
-        <activity android:name=".Maps" />
         <activity android:name=".ArtGallery" />
         <activity android:name=".Profile" />
         <activity android:name=".MainActivity" />

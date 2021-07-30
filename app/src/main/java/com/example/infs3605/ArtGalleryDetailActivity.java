@@ -3,6 +3,7 @@ package com.example.infs3605;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
@@ -31,6 +33,8 @@ public class ArtGalleryDetailActivity extends AppCompatActivity {
     private TextView mCreator;
     private TextView mDescription;
     private ImageView mImage;
+    FirebaseUser user;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,22 +83,18 @@ public class ArtGalleryDetailActivity extends AppCompatActivity {
     toggle.syncState();
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-    //THIS IS THE CODE TO DISPLAY THE EMAIL OF THE CURRENT USER IN THE NAV MENU
-    //CURRENTLY THIS CRASHES THE APP IF NO USER LOGGED IN (I.E. SKIP TO MAIN)
-        /*
         //Get current user
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
 
-        //Displays users email in the drawer
+        //Display the user's email in the navigation menu header
         View headerView = navigationView.getHeaderView(0);
         TextView userEmail = headerView.findViewById(R.id.email);
         if (userEmail != null) {
             userEmail.setText(user.getEmail());;
         }
-        */
 
-    //Navigation menu logic
+        //Navigation menu logic
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {

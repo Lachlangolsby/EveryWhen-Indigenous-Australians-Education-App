@@ -21,9 +21,10 @@
                 <item android:id="@+id/mHome"
                     android:title="Home"
                     android:icon="@drawable/home"/>
-                <item android:id="@+id/mModule1"
-                    android:title="ArtGallery"
-                    android:icon="@drawable/picture"/>
+                <item
+                    android:id="@+id/mModule1"
+                    android:icon="@drawable/picture"
+                    android:title="Art Gallery" />
                 <item android:id="@+id/mModule2"
                     android:title="Maps"
                     android:icon="@drawable/map"/>

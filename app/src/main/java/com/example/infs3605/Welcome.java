@@ -25,19 +25,10 @@ public class Welcome extends AppCompatActivity {
         //Set Title
         setTitle("");
 
-        skipToMain = (Button) findViewById(R.id.skipToMain);
         login = (Button) findViewById(R.id.login);
         register = (Button) findViewById(R.id.register);
 
         //Set OnClickListeners for Buttons
-        skipToMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent toMain = new Intent(Welcome.this, MainActivity.class);
-                startActivity(toMain);
-            }
-        });
-
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

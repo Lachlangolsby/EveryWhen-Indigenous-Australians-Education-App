@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -110,9 +111,6 @@ public class MainActivity extends AppCompatActivity {
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //THIS IS THE CODE TO DISPLAY THE EMAIL OF THE CURRENT USER IN THE NAV MENU
-        //CURRENTLY THIS CRASHES THE APP IF NO USER LOGGED IN (I.E. SKIP TO MAIN)
-        /*
         //Get current user
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
@@ -123,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
         if (userEmail != null) {
             userEmail.setText(user.getEmail());;
         }
-        */
 
         //Navigation menu logic
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -138,41 +135,41 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.mModule1:
                         Toast.makeText(MainActivity.this, "ArtGallery", Toast.LENGTH_SHORT);
-                        Intent activityChangeIntentCalculator = new Intent(MainActivity.this, ArtGallery.class);
-                        MainActivity.this.startActivity(activityChangeIntentCalculator);
+                        Intent activityArtGallery = new Intent(MainActivity.this, ArtGallery.class);
+                        MainActivity.this.startActivity(activityArtGallery);
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.mModule2:
                         Toast.makeText(MainActivity.this, "Maps", Toast.LENGTH_SHORT);
-                        Intent activityChangeIntentSmartInvesting = new Intent(MainActivity.this, GoogleMaps.class);
-                        MainActivity.this.startActivity(activityChangeIntentSmartInvesting);
+                        Intent activityMaps = new Intent(MainActivity.this, GoogleMaps.class);
+                        MainActivity.this.startActivity(activityMaps);
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.mModule3:
                         Toast.makeText(MainActivity.this, "EventsDiscounts", Toast.LENGTH_SHORT);
                         drawerLayout.closeDrawers();
-                        Intent activityChangeIntentFG = new Intent(MainActivity.this, EventsOffers.class);
-                        MainActivity.this.startActivity(activityChangeIntentFG);
+                        Intent activityEventsOffers = new Intent(MainActivity.this, EventsOffers.class);
+                        MainActivity.this.startActivity(activityEventsOffers);
                         break;
                     case R.id.mModule4:
-                        Toast.makeText(MainActivity.this, "EventsDiscounts", Toast.LENGTH_SHORT);
+                        Toast.makeText(MainActivity.this, "Stories", Toast.LENGTH_SHORT);
                         drawerLayout.closeDrawers();
-                        Intent activityChangeIntentS = new Intent(MainActivity.this, StoriesMain.class);
-                        MainActivity.this.startActivity(activityChangeIntentS);
+                        Intent activityStories = new Intent(MainActivity.this, StoriesMain.class);
+                        MainActivity.this.startActivity(activityStories);
                         break;
                     case R.id.mProfile:
                         Toast.makeText(MainActivity.this, "Profile", Toast.LENGTH_SHORT);
                         drawerLayout.closeDrawers();
-                        Intent activityChangeIntentP = new Intent(MainActivity.this, Profile.class);
-                        MainActivity.this.startActivity(activityChangeIntentP);
+                        Intent activityProfile = new Intent(MainActivity.this, Profile.class);
+                        MainActivity.this.startActivity(activityProfile);
                         break;
                     case R.id.mShare:
                         String shareMessage = "Join, it's fun and eductaional.";
                         Intent mSharingIntent = new Intent(Intent.ACTION_SEND);
                         mSharingIntent.setType("Text/Plain");
-                        mSharingIntent.putExtra(Intent.EXTRA_SUBJECT, "MYFinance HighScore");
+                        mSharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Everywhen");
                         mSharingIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
-                        startActivity(Intent.createChooser(mSharingIntent, "Share Score Via"));
+                        startActivity(Intent.createChooser(mSharingIntent, "Everywhen"));
                         break;
                     case R.id.mLogout:
                         FirebaseAuth.getInstance().signOut();
