@@ -49,7 +49,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
     SupportMapFragment mapFrag;
     LocationRequest mLocationRequest;
     Location mLastLocation;
-    Marker mCurrLocationMarker;
+    Marker mCurrentLocation;
     FusedLocationProviderClient mFusedLocationClient;
     CheckBox museums, publicArt, trails;
     FloatingActionButton fab;
@@ -125,7 +125,6 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
     public void onPause() {
         super.onPause();
 
-        //stop location updates when Activity is no longer active
         if (mFusedLocationClient != null) {
             mFusedLocationClient.removeLocationUpdates(mLocationCallback);
         }
@@ -143,12 +142,12 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
-            //Location Permission already granted
+            //Location permission already granted
             mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback,
                     Looper.myLooper());
             mMap.setMyLocationEnabled(true);
         } else {
-            //Request Location Permission
+            //Location permission not granted - must request it from user
             checkLocationPermission();
         }
 
@@ -227,14 +226,14 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
         public void onLocationResult(LocationResult locationResult) {
             List<Location> locationList = locationResult.getLocations();
             if (locationList.size() > 0) {
-                //The last location in the list is the newest
+
                 Location location = locationList.get(locationList.size() - 1);
                 mLastLocation = location;
-                if (mCurrLocationMarker != null) {
-                    mCurrLocationMarker.remove();
+                if (mCurrentLocation != null) {
+                    mCurrentLocation.remove();
                 }
 
-                //move map camera
+                //Animate map camera so it can be moved from current location pin
                 LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
                 CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(latLng.latitude, latLng.longitude)).zoom(12).build();
                 mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
@@ -305,13 +304,9 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
 
-            // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)) {
 
-                // Show an explanation to the user *asynchronously* -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
                 new AlertDialog.Builder(this)
                         .setTitle("Location Permission Needed")
                         .setMessage("This app needs the Location permission, please accept to use location functionality")
@@ -329,7 +324,6 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
 
 
             } else {
-                // No explanation needed, we can request the permission.
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                         MY_PERMISSIONS_REQUEST_LOCATION );
@@ -342,12 +336,10 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_LOCATION: {
-                // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                    // permission was granted, yay! Do the
-                    // location-related task you need to do.
+                    //If permission is granted access location services
                     if (ContextCompat.checkSelfPermission(this,
                             Manifest.permission.ACCESS_FINE_LOCATION)
                             == PackageManager.PERMISSION_GRANTED) {
@@ -358,7 +350,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback {
                     }
 
                 } else {
-                    // if not allow a permission, the application will exit
+                    //If user doesn't provide location permission exit page and reutrn to Main Page
                     Intent toHome = new Intent(GoogleMaps.this, MainActivity.class);
                     startActivity(toHome);
                 }
